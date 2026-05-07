@@ -91,8 +91,11 @@ _______________________________________________
 
 > [!important] 🔑 **设计前提：多端协同，不是单机专属**
 >
-> 本系统的核心设计目标是：**你可能在多个 AI 平台同时使用（WorkBuddy / Trae / Qclaw 等）**。
+> 本系统的核心设计目标是：**你可能在多个 AI 平台同时使用（WorkBuddy / Cursor / Claude Code 等）**。
 > 记忆数据不能锁死在任何一个平台的原生目录里，否则换平台=丢记忆。
+>
+> **路径变量体系**：所有文件引用使用 `$MEMORY_ROOT` 和 `$WORKSPACE` 变量，AI 执行时替换为实际路径。
+> 换机器只需改 `$MEMORY_ROOT = ...` 一处。
 
 **你需要确认两类路径：**
 
@@ -100,44 +103,52 @@ _______________________________________________
 
 | 目录 | 用途 | 说明 |
 |------|------|------|
-| `~/[记忆共享中心]/` | 记忆数据主仓库 | 所有平台共用的唯一真实数据源 |
-| `~/[记忆共享中心]/核心层/CORE.md` | L1 核心层 | 身份+价值观+底线 |
-| `~/[记忆共享中心]/记忆规则/` | L2/L3 规则 | 认知层+行为层详细规则 |
-| `~/[记忆共享中心]/SHADOW.md` | L5 潜意识层 | 言行偏差记录 |
-| `~/[记忆共享中心]/技能配置/` | Skill 主版本 | 所有 Skill 的原始存放地 |
+| `$MEMORY_ROOT/` | 记忆数据主仓库 | 所有平台共用的唯一真实数据源 |
+| `$MEMORY_ROOT/核心层/CORE.md` | L1 核心层 | 身份+价值观+底线 |
+| `$MEMORY_ROOT/记忆规则/` | L2/L3 规则 | 认知层+行为层详细规则 |
+| `$MEMORY_ROOT/rules/` | AI 参考规则 | core-identity.md + behavior-rules.md + 记忆路由表.md |
+| `$MEMORY_ROOT/记忆规则/00_动态状态快照.md` | L4 情境层 | 当前目标+瓶颈 |
+| `$MEMORY_ROOT/SHADOW.md` | L5 潜意识层 | 言行偏差记录 |
+| `$MEMORY_ROOT/技能配置/` | Skill 模板源 | 各平台安装时从此复制 |
 
-> 💡 **关于 `[记忆共享中心]`**
+> 💡 **关于 `$MEMORY_ROOT`**
 >
-> 这是你的公共文件夹目录名占位符。你可以叫它 `ai-brain`、`记忆库`、`AI档案` 等——只要所有文件统一就行。**建议第一次搭建时就想好名字**，后续改名成本极高（需同步修改系统常量、软链接、所有路径引用）。
+> 这是公共文件夹根目录的变量占位符。安装时确定实际路径（如 `E:\SynologyDrive\Memory\`），
+> 写入 `rules/记忆路由表.md` 的系统常量段。换机器只改这一处。
 
-#### 第二类：WorkBuddy 原生路径（仅 WorkBuddy 使用）
+#### 第二类：平台原生路径（按所用平台配置）
 
 | 目录 | 用途 | 说明 |
 |------|------|------|
-| `~/.workbuddy/rules/` | `.mdc` 协作契约 | 从公共文件夹同步过来的规则（自动注入！） |
-| `~/.workbuddy/skills/` | Skill 软链接 | 指向公共文件夹的 Skill 主版本 |
+| `~/.workbuddy/IDENTITY.md` + `USER.md` | AI身份+用户画像 | 全局配置，各平台自动读取 |
 | `{工作区}/.workbuddy/memory/` | 项目级工作记忆 | MEMORY.md + 每日日志 |
+| `~/.workbuddy/skills/` | Skill 工具目录 | 从 `$MEMORY_ROOT/技能配置/` 复制 SKILL.md 过来 |
+| `~/.claude/skills/` | （若用 Cursor/Claude Code） | 同上 |
 
 > 📍 **关键理解**：
-> - `~/[记忆共享中心]/` = **数据源头**（你手动维护 / AI 写入）
-> - `~/.workbuddy/rules/*.mdc` = **自动注入副本**（WorkBuddy 自动读取）
-> - 两者的同步方式：**软链接** 或 **手动复制**
-> - 如果只用 WorkBuddy 一个平台，可以把两者设为同一个目录；但**不建议**——因为以后加第二平台时又要迁移
+> - `$MEMORY_ROOT/` = **数据源头**（你手动维护 / AI 写入）
+> - 各平台通过 `$MEMORY_ROOT` 变量找到记忆文件，按路由表按需读取
+> - Skill 不通过软链接同步，直接从 `技能配置/` 复制到对应平台的 skills/ 目录
+> - `IDENTITY.md` / `USER.md` 属于 WorkBuddy 全局配置，与记忆系统解耦
 
 ### 📋 第四步：文件检查
 
 系统将检查以下基础文件是否存在：
 
 **公共文件夹（多端共享）：**
-- `~/[记忆共享中心]/` 目录是否存在
-- `~/[记忆共享中心]/核心层/CORE.md`（核心层，首次问卷后生成）
-- `~/[记忆共享中心]/SHADOW.md`（潜意识层，可选）
+- `$MEMORY_ROOT/` 目录是否存在
+- `$MEMORY_ROOT/核心层/CORE.md`（核心层，首次问卷后生成）
+- `$MEMORY_ROOT/rules/` 目录（AI 参考规则）
+- `$MEMORY_ROOT/rules/core-identity.md`（核心身份规则）
+- `$MEMORY_ROOT/rules/behavior-rules.md`（行为规则）
+- `$MEMORY_ROOT/rules/记忆路由表.md`（信号词路由）
+- `$MEMORY_ROOT/SHADOW.md`（潜意识层，可选）
 
-**WorkBuddy 原生：**
-- `~/.workbuddy/IDENTITY.md`（AI 身份）
-- `~/.workbuddy/USER.md`（用户画像）
-- `~/.workbuddy/rules/*.mdc`（协作规则，至少一个）
-- `.workbuddy/memory/MEMORY.md`（情境层，可选）
+**平台原生（按平台不同）：**
+- `~/.workbuddy/IDENTITY.md`（AI 身份，WorkBuddy 专用）
+- `~/.workbuddy/USER.md`（用户画像，WorkBuddy 专用）
+- `{工作区}/CLAUDE.md` 或 `AGENTS.md` 或 `.cursorrules` 或 `GEMINI.md`（平台入口文件，至少一个存在且含路由表引用）
+- `{工作区}/.workbuddy/memory/MEMORY.md`（情境层，可选）
 
 > ⚠️ 如果公共文件夹不存在，系统会提示你先创建它——这是多端协同的前提。
 
@@ -154,9 +165,10 @@ _______________________________________________
 ### ✅ 第六步：记忆文件生成
 
 完成问卷后，系统将：
-- 创建完整的五层记忆文件（写入对应路径）
+- 创建完整的五层记忆文件（写入公共文件夹）
+- 生成 `rules/` 下的 AI 参考规则（core-identity.md + behavior-rules.md + 记忆路由表.md）
 - 生成专属的《底层洞察与协作契约报告》
-- 配置规则注入、TTL 管理、Skill 创建等全部功能
+- 配置 TTL 管理、Skill 模板、路由表导航等全部功能
 
 ### 🧪 第七步：系统验证
 
@@ -169,115 +181,133 @@ _______________________________________________
 
 ## ⚙️ 系统常量（路径定义）
 
-> [!important] 🔑 **多端协同架构：公共文件夹 + 平台原生路径**
+> [!important] 🔑 **多端协同架构：公共文件夹 + 路径变量**
 >
 > AI 必须严格遵守以下路径写入文件，不得自行推断或猜测路径。
 >
-> **核心原则：平台无关的数据写公共文件夹，平台特有的机制用原生路径。**
+> **核心原则：平台无关的数据写公共文件夹，平台特有的配置用原生路径。**
+>
+> **路径变量**：`$MEMORY_ROOT` = 公共文件夹根目录，`$WORKSPACE` = 当前工作区路径。
+> 所有文件引用先用变量占位，AI 执行时替换为实际路径。
 
 ### 第一组：公共文件夹路径（★ 多端共享数据）
 
 | 常量名 | 路径 | 说明 | 归属层级 |
 |--------|------|------|---------|
-| `PATH_SHARED_ROOT` | `~/[记忆共享中心]/` | 公共文件夹根目录 | — |
-| `PATH_CORE` | `~/[记忆共享中心]/核心层/CORE.md` | L1 核心层（身份+价值观+底线） | L1 |
-| `PATH_RULES_DIR` | `~/[记忆共享中心]/记忆规则/` | L2/L3 规则文件目录 | L2/L3 |
-| `PATH_RULES_USER` | `~/[记忆共享中心]/记忆规则/用户基本规则.md` | 用户基本行为规则 | L2/L3 |
-| `PATH_SNAPSHOT` | `~/[记忆共享中心]/记忆规则/00_动态状态快照.md` | L4 情境层当前状态 | L4 |
-| `PATH_SHADOW` | `~/[记忆共享中心]/SHADOW.md` | L5 潜意识层（言行偏差） | L5 |
-| `PATH_SKILLS_DIR` | `~/[记忆共享中心]/技能配置/` | Skill 主版本存放地 | — |
+| `PATH_SHARED_ROOT` | `$MEMORY_ROOT` | 公共文件夹根目录 | — |
+| `PATH_CORE` | `$MEMORY_ROOT/核心层/CORE.md` | L1 核心层（身份+价值观+底线） | L1 |
+| `PATH_RULES_DIR` | `$MEMORY_ROOT/记忆规则/` | L2/L3 规则文件目录 | L2/L3 |
+| `PATH_RULES_USER` | `$MEMORY_ROOT/记忆规则/用户基本规则.md` | 用户基本行为规则 | L2/L3 |
+| `PATH_RULES_CORE` | `$MEMORY_ROOT/rules/core-identity.md` | L1+L2 AI 参考规则 | L1/L2 |
+| `PATH_RULES_BEHAVIOR` | `$MEMORY_ROOT/rules/behavior-rules.md` | L3+L4 AI 参考规则 | L3/L4 |
+| `PATH_ROUTING_TABLE` | `$MEMORY_ROOT/rules/记忆路由表.md` | 信号词路由规则 | 路由 |
+| `PATH_SNAPSHOT` | `$MEMORY_ROOT/记忆规则/00_动态状态快照.md` | L4 情境层当前状态 | L4 |
+| `PATH_SHADOW` | `$MEMORY_ROOT/SHADOW.md` | L5 潜意识层（言行偏差） | L5 |
+| `PATH_SKILLS_DIR` | `$MEMORY_ROOT/技能配置/` | Skill 模板源 | — |
 
-### 第二组：WorkBuddy 原生路径（仅 WorkBuddy 使用）
+### 第二组：工作区路径（项目级，按项目隔离）
 
 | 常量名 | 路径 | 说明 |
 |--------|------|------|
-| `PATH_IDENTITY` | `~/.workbuddy/IDENTITY.md` | AI 身份档案（全局，自动注入） |
-| `PATH_USER` | `~/.workbuddy/USER.md` | 用户画像（全局，自动注入） |
-| `PATH_RULES_MDC_CORE` | `~/.workbuddy/rules/core-identity.mdc` | L1+L2 规则的 .mdc 副本（自动注入 system prompt） |
-| `PATH_RULES_MDC_BEHAVIOR` | `~/.workbuddy/rules/behavior-rules.mdc` | L3 行为规则的 .mdc 副本（自动注入 system prompt） |
-| `PATH_MEMORY_DIR` | `{工作区}/.workbuddy/memory/` | 项目级工作记忆目录 |
-| `PATH_MEMORY` | `{工作区}/.workbuddy/memory/MEMORY.md` | L4 情境层载体（跨会话持久） |
-| `PATH_DIARY` | `{工作区}/.workbuddy/memory/YYYY-MM-DD.md` | 每日日志（按日期创建） |
-| `PATH_SKILLS_WB` | `~/.workbuddy/skills/{名称}/SKILL.md` | Skill 软链接 → 指向 PATH_SKILLS_DIR |
-| `PATH_ROUTING_TABLE` | `~/.workbuddy/rules/记忆路由表.mdc` | 信号词路由表（自动注入，按需加载执行） |
+| `PATH_MEMORY_DIR` | `$WORKSPACE/.workbuddy/memory/` | 项目级工作记忆目录 |
+| `PATH_MEMORY` | `$WORKSPACE/.workbuddy/memory/MEMORY.md` | L4 情境层载体（跨会话持久） |
+| `PATH_DIARY` | `$WORKSPACE/.workbuddy/memory/YYYY-MM-DD.md` | 每日日志（按日期创建） |
 
 ### 目录结构一览
 
 ```
 ═══════════════════════════════════════════════════════
-  第一块：公共文件夹 ~/[记忆共享中心]/ （★ 数据源头）
+  公共文件夹 $MEMORY_ROOT/ （★ 数据源头）
 ═══════════════════════════════════════════════════════
 
-~/[记忆共享中心]/                        ← 所有平台的唯一真实数据源
+$MEMORY_ROOT/                          ← 所有平台的唯一真实数据源
 ├── 核心层/
-│   └── CORE.md                          ← L1 核心层（三端共用）
+│   └── CORE.md                        ← L1 核心层（多端共用）
 ├── 记忆规则/
-│   ├── 用户基本规则.md                   ← L2/L3 认知层+行为层
-│   ├── 成长箱晋升机制.md                 ← 错误→规则晋升流程
-│   ├── 00_动态状态快照.md                ← L4 情境层当前状态
-│   ├── 题目库.md                         ← 33 题问卷题目
-│   └── 问卷答案汇总.md                   ← 33 题问卷答案
-├── SHADOW.md                            ← L5 潜意识层（三端共用）
-└── 技能配置/                             ← Skill 主版本（三端从这里链接）
-    ├── 唤醒记忆系统/SKILL.md
-    ├── 每日伙伴/SKILL.md
-    └── 读书助手/SKILL.md
+│   ├── 用户基本规则.md                 ← L2/L3 认知层+行为层
+│   ├── 成长箱晋升机制.md               ← 错误→规则晋升流程
+│   ├── 00_动态状态快照.md              ← L4 情境层当前状态
+│   ├── 题目库.md                       ← 33 题问卷题目
+│   └── 问卷答案汇总.md                 ← 33 题问卷答案
+├── rules/                             ← AI 参考规则（路由表入口）
+│   ├── core-identity.md               ← 核心身份+交互规则
+│   ├── behavior-rules.md              ← 行为模式+情境适配
+│   └── 记忆路由表.md                  ← 信号词路由规则（★ 新 agent 入口）
+├── SHADOW.md                          ← L5 潜意识层（多端共用）
+├── 技能配置/                           ← Skill 模板源
+│   ├── 唤醒记忆系统/SKILL.md
+│   ├── 每日伙伴/SKILL.md
+│   └── 读书助手/SKILL.md
+└── 底层洞察与协作契约报告.md           ← 完整解析报告
 
 ═══════════════════════════════════════════════════════
-  第二块：WorkBuddy 原生 ~/.workbuddy/ （WB 特有）
+  平台原生目录（按平台不同）
 ═══════════════════════════════════════════════════════
 
-~/.workbuddy/                              ← WorkBuddy 全局配置
-├── IDENTITY.md                           ← AI 是谁（每次对话自动注入）
-├── USER.md                               ← 用户是谁（每次对话自动注入）
-├── rules/
-│   ├── core-identity.mdc                 ← 从 CORE.md + 用户规则同步（自动注入！）
-│   └── behavior-rules.mdc                ← 从行为规则同步（自动注入！）
-└── skills/
-    ├── 唤醒记忆系统/SKILL.md             → 📎 软链 → [记忆共享中心]/技能配置/...
-    ├── 每日伙伴/SKILL.md                 → 📎 软链 → [记忆共享中心]/技能配置/...
-    └── 读书助手/SKILL.md                 → 📎 软链 → [记忆共享中心]/技能配置/...
+~/.workbuddy/                          ← WorkBuddy 全局配置
+├── IDENTITY.md                        ← AI 是谁（每次对话自动注入）
+└── USER.md                            ← 用户是谁（每次对话自动注入）
+
+~/.workbuddy/skills/                   ← WorkBuddy 技能目录（从 $MEMORY_ROOT/技能配置/ 复制）
+├── 唤醒记忆系统/SKILL.md              ← 📎 从技能模板复制
+├── 每日伙伴/SKILL.md                  ← 📎 同上
+└── 读书助手/SKILL.md                  ← 📎 同上
+
+~/.claude/skills/                      ← 其他平台（如 Claude Code），同理
 
 ═══════════════════════════════════════════════════════
-  第三块：项目工作空间 {工作区}/.workbuddy/ （项目级）
+  项目工作空间 $WORKSPACE/.workbuddy/ （项目级）
 ═══════════════════════════════════════════════════════
 
 {你的工作空间}/
 └── .workbuddy/
-    └── memory/                           ← 项目级工作记忆（按项目隔离）
-        ├── MEMORY.md                     ← L4 情境层载体（AI 按需读写）
-        ├── 2026-04-25.md                 ← 今日日志
-        └── 2026-04-24.md                 ← 昨日日志
+    └── memory/                        ← 项目级工作记忆（按项目隔离）
+        ├── MEMORY.md                  ← L4 情境层载体（AI 按需读写）
+        ├── 2026-05-07.md              ← 今日日志
+        └── 2026-04-25.md              ← 昨日日志
 ```
 
-### WorkBuddy 加载机制说明
+### 加载机制说明
 
 > [!important] 理解这些机制是正确使用记忆系统的前提
 
-#### 公共文件夹 vs WorkBuddy 原生：数据流向
+#### 数据流向
 
 ```
-[记忆共享中心]/CORE.md ──写入──→ ~/.workbuddy/rules/core-identity.mdc ──注入──→ AI 上下文
-[记忆共享中心]/用户规则.md ──同步──→ ~/.workbuddy/rules/*.mdc ──注入──→ AI 上下文
-[记忆共享中心]/技能配置/SKILL.md ──软链──→ ~/.workbuddy/skills/*/SKILL.md ──按需加载
-{工作区}/.workbuddy/memory/MEMORY.md ──────────────────────────────→ 注入项目上下文
+$MEMORY_ROOT/                ← 所有记忆文件的唯一真实数据源
+├── 记忆路由表.md ── AI 读取 → 知道不同场景该读什么文件
+├── rules/core-identity.md ── AI 按需读取 → 获取核心身份和交互规则
+├── 记忆规则/用户基本规则.md ── AI 按需读取 → 获取详细认知和行为规则
+├── 核心层/CORE.md ───────── AI 按需读取 → 获取完整价值观体系
+├── SHADOW.md ────────────── AI 按需读取/写入 → 记录言行偏差
+└── 技能配置/SKILL.md ───── 复制到平台 skills/ → 按触发词加载执行
+
+{工作区}/.workbuddy/memory/
+└── MEMORY.md ────────────── AI 按需读写 → 跨会话情境持久
+└── YYYY-MM-DD.md ───────── AI 按需写入 → 每日日志
+
+~/.workbuddy/
+├── IDENTITY.md ──────────── 自动注入 → 每次对话 AI 知道我是谁
+└── USER.md ──────────────── 自动注入 → 每次对话 AI 知道服务谁
 ```
 
-#### 加载机制表
+#### 加载方式对照
 
-| 文件类型 | 存放位置 | 加载时机 | 加载方式 | 多端可见？ |
-|---------|---------|---------|---------|-----------|
-| `IDENTITY.md` / `USER.md` | `~/.workbuddy/`（WB原生） | **每次对话自动** | system prompt 内置 | ❌ 仅WB |
-| `rules/*.mdc` | `~/.workbuddy/rules/`（从公共同步） | **每次对话自动** | system prompt 内置 | ❌ 仅WB |
-| `.workbuddy/memory/MEMORY.md` | 项目级 WB 原生 | **自动注入** | project context | ❌ 仅当前项目 |
-| **公共文件夹文件** | `[记忆共享中心]/` | **AI 按需读取** | 工具调用 | ✅ **所有平台** |
-| `skills/*/SKILL.md` | 软链接→公共文件夹 | 触发词匹配 | use_skill | ✅ **所有平台** |
+| 文件/目录 | 存放位置 | 加载机制 | 多端可见？ |
+|-----------|---------|---------|-----------|
+| `IDENTITY.md` / `USER.md` | `~/.workbuddy/`（平台全局） | **自动注入系统提示** | ❌ 仅当前平台 |
+| `$MEMORY_ROOT/` 全部文件 | `$MEMORY_ROOT/`（公共共享） | **AI 按需读取**（路由表导航） | ✅ **所有平台** |
+| `rules/记忆路由表.md` | `$MEMORY_ROOT/rules/`（公共共享） | **新 agent 入口** → 先读此文件 | ✅ **所有平台** |
+| `skills/*/SKILL.md` | 各平台 skills/ 目录 | **触发词匹配 → 加载执行** | ❌ 各自安装 |
+| `.workbuddy/memory/MEMORY.md` | 项目级目录 | **AI 按需读写** | ❌ 仅当前项目 |
 
 > 💡 **核心认知**
 >
-> - **rules/*.mdc 是"缓存"**：真正的数据在 `[记忆共享中心]`，`.mdc` 是为了让 WorkBuddy 能自动注入而生成的副本
-> - **Skill 通过软链接实现多端共用**：改主版本，三端同时更新
+> - **公共文件夹是数据源头**，所有平台共享。路由表是导航地图，告诉 AI 什么场景读哪个文件
+> - **各平台不自动注入公共文件**——AI 通过读取路由表按需读取，路径用 `$MEMORY_ROOT` 变量替换
+> - **Skill 在各平台各自安装**——从 `$MEMORY_ROOT/技能配置/` 复制 SKILL.md 到对应平台目录
 > - **MEMORY.md 和日志是项目级隔离的**：不同工作空间有不同的上下文，不适合共享
+> - **IDENTITY.md / USER.md** 是平台全局配置，与记忆系统解耦
 
 ---
 
@@ -388,10 +418,10 @@ _______________________________________________
 
 | 信号词（出现任一即触发） | 读取文件 | 备注 |
 |------------------------|---------|------|
-| 计划 / 今天做啥 / 明天 / 安排 | `behavior-rules.mdc` 行为层 | 行为模式 |
-| 要不要 / 选A还是B / 决策 | `core-identity.mdc` 或 MEMORY.md | 情境：目标+卡点 |
-| 烦 / 累 / 压力大 / 内耗 | SHADOW.md | 最近偏差记录 |
-| 复盘 / 总结 / 反思 / 回顾（无时间词） | 哲学思考框架（如有） | 认知层面的反思 |
+| 计划 / 今天做啥 / 明天 / 安排 | `$MEMORY_ROOT/rules/behavior-rules.md` | 行为模式 |
+| 要不要 / 选A还是B / 决策 | `$MEMORY_ROOT/rules/core-identity.md` + 状态快照 | 价值观+当前情境 |
+| 烦 / 累 / 压力大 / 内耗 | `$MEMORY_ROOT/SHADOW.md` | 最近偏差记录 |
+| 复盘 / 总结 / 反思 / 回顾（无时间词） | `$MEMORY_ROOT/记忆规则/用户基本规则.md` | 认知层规则 |
 
 ### 兜底规则
 
@@ -410,8 +440,8 @@ _______________________________________________
    - 匹配1个 → `[🧠 路由: 行为层]` 或 `[🧠 路由: SHADOW]` 等
    - 匹配多个 → `[🧠 路由: 行为层+SHADOW]`
    - 触发 Skill → `[🧠 路由: 每日伙伴]` 或 `[🧠 路由: 读书助手]`
-4. **读取路径**：`~/[记忆共享中心]/记忆规则/` 下的对应文件
-5. **Skill 触发**：用 `use_skill` 调用对应 Skill
+4. **路径替换**：用 `$MEMORY_ROOT` 替换所有文件引用中的变量前缀
+5. **Skill 触发**：通过平台 Skill 工具调用对应 Skill
 ```
 
 > [!tip] 关键设计决策
@@ -538,21 +568,24 @@ _______________________________________________
 
 ### G6. 规则文件管理
 
-> [!success] .mdc 规则文件的编写和使用
+> [!success] 规则文件管理——AI 参考规则 vs 详细规则文档
 
-WorkBuddy 的规则通过 `~/.workbuddy/rules/` 下的 `.mdc` 文件实现。
+**规则文件分层**：
 
-**规则文件的特点**：
-- 放入 `rules/` 目录的 `.mdc` 文件会在**每次对话启动时自动注入 system prompt**
-- 不需要任何额外配置，创建即生效
-- 支持多个文件，全部都会被注入
+| 层次 | 存放位置 | 用途 | 读取方式 |
+|------|---------|------|---------|
+| AI 参考规则 | `$MEMORY_ROOT/rules/core-identity.md` + `behavior-rules.md` | 提炼自详细规则的浓缩版，AI 快速了解核心身份和行为模式 | 按路由表按需读取 |
+| 详细规则文档 | `$MEMORY_ROOT/记忆规则/用户基本规则.md` | 完整版 L2+L3 规则，含全部 Q 编号映射和协作契约 | 需要深度参考时读取 |
+| 核心身份 | `$MEMORY_ROOT/核心层/CORE.md` | 完整版 L1 核心层，含价值观体系、红线、认知盲点 | 需要完整身份参考时读取 |
+| 路由规则 | `$MEMORY_ROOT/rules/记忆路由表.md` | 信号词→读取文件的导航映射 | ★ 新 agent 首读入口 |
 
 **建议的规则文件拆分**：
 
-| 文件名 | 内容 | 预估行数 |
-|--------|------|---------|
-| `core-identity.mdc` | L1 核心层（价值观/红线）+ L2 认知层（交互风格/决策画像） | ~150 行 |
-| `behavior-rules.mdc` | L3 行为层（行为模式/能量管理）+ 协作契约 | ~150 行 |
+| 文件名 | 内容 | 形式 |
+|--------|------|------|
+| `core-identity.md` | L1 核心层（价值观/红线）+ L2 认知层（交互风格）浓缩版 | 纯 Markdown，无 frontmatter |
+| `behavior-rules.md` | L3 行为层（行为模式/能量管理）+ 情境适配 | 纯 Markdown，无 frontmatter |
+| `记忆路由表.md` | 信号词路由 + 系统常量 `$MEMORY_ROOT` + `$WORKSPACE` | 每行路径使用变量 |
 
 **规则编写规范**：
 ```markdown
@@ -785,42 +818,46 @@ Step 3: ...
    - 都存在 → 跳过，直接进入问卷引导
    - 不存在 → 引导完成 Q0 身份确认题目（约2分钟）
    - 完成后自动生成 IDENTITY.md 和 USER.md 到 ~/.workbuddy/
-3. 公共文件夹检查：确认 ~/[记忆共享中心]/ 是否已创建
-   - 不存在 → 提示用户先创建公共文件夹（见新手指南 3.2 节）
+3. 公共文件夹检查：确认 $MEMORY_ROOT 是否已创建
+   - 不存在 → 提示用户先创建公共文件夹
 4. 问卷引导：引导用户完成 33 道问卷（Q1-Q33）
-5. 记忆文件生成：根据问卷答案写入【公共文件夹】对应路径
-6. WorkBuddy 同步：将规则同步到 ~/.workbuddy/rules/*.mdc（供自动注入）
-7. 路由表创建：根据 G3b 模板创建 ~/.workbuddy/rules/记忆路由表.mdc（信号词根据用户问卷答案调整）
-8. Skill 安装：将附录B的SKILL.md模板写入 ~/[记忆共享中心]/技能配置/唤醒记忆系统/SKILL.md，替换所有占位符为用户实际路径和称谓。然后在 ~/.workbuddy/skills/ 创建软链接指向该文件
-9. 洞察报告生成：按附录A模板生成《底层洞察与协作契约报告》，AI询问存储路径后写入（⚠️ 此步不可跳过，是初始化的最终交付物）
-10. 系统验证：新建对话测试规则是否生效（含路由表标记执行测试）
-11. 系统就绪：提示用户记忆系统已初始化完成
+5. 记忆文件生成：根据问卷答案写入公共文件夹对应路径
+6. rules 生成：根据 CORE.md 和用户规则提炼，写入 `$MEMORY_ROOT/rules/`（core-identity.md + behavior-rules.md）
+7. 路由表生成：根据问卷答案和用户常用场景创建 `$MEMORY_ROOT/rules/记忆路由表.md`
+8. 平台入口注入：检测工作区是否存在 CLAUDE.md / AGENTS.md / GEMINI.md / .cursorrules 等平台配置文件
+   - 存在 → 追加一行 `> 记忆系统入口：$MEMORY_ROOT/rules/记忆路由表.md`
+   - 不存在 → 创建 AGENTS.md（跨平台兼容最广），写入上述内容
+   - ⚠️ 此步决定了 agent 能否自动发现记忆系统，不可跳过
+9. Skill 安装：复制 `$MEMORY_ROOT/技能配置/` 下的 SKILL.md 到对应平台的 skills/ 目录
+10. 洞察报告生成：按附录A模板生成《底层洞察与协作契约报告》
+11. 系统验证：验证文件完整性 + 路由表可读 + 平台入口已注入
+12. 系统就绪：提示用户记忆系统已初始化完成
 ```
 
 **当用户完成问卷回答时：**
 ```
 如果 Q1-Q10 已有回答:
-    写入 PATH_CORE（~/[记忆共享中心]/核心层/CORE.md）
-    同步到 PATH_RULES_MDC_CORE（~/.workbuddy/rules/core-identity.mdc）
+    写入 `$MEMORY_ROOT/核心层/CORE.md`
+    同步提炼到 `$MEMORY_ROOT/rules/core-identity.md`
 
 如果 Q11-Q23 已有回答:
-    分别写入 PATH_RULES_USER 或 PATH_CORE（按题目归属，均在公共文件夹内）
-    同步对应的 .mdc 文件
+    分别写入 `$MEMORY_ROOT/记忆规则/用户基本规则.md` 或 CORE.md（按题目归属，均在公共文件夹内）
+    同步提炼对应的 `rules/` 文件
 
 如果 Q24-Q28 已有回答:
-    写入 PATH_SNAPSHOT（~/[记忆共享中心]/记忆规则/00_动态状态快照.md）
-    同步到 PATH_MEMORY（.workbuddy/memory/MEMORY.md）
+    写入 `$MEMORY_ROOT/记忆规则/00_动态状态快照.md`
+    同步到 `$WORKSPACE/.workbuddy/memory/MEMORY.md`
 
 如果 Q29-Q30 已有回答:
-    写入 PATH_SHADOW（~/[记忆共享中心]/SHADOW.md）
-    （L5 潜意识层仅存公共文件夹，不放入 WorkBuddy 原生目录）
+    写入 `$MEMORY_ROOT/SHADOW.md`
+    （L5 潜意识层仅存公共文件夹）
 
 如果 Q31 已有回答:
-    提取金句，写入 PATH_CORE 顶部（首位优先）
+    提取金句，写入 `$MEMORY_ROOT/核心层/CORE.md` 顶部（首位优先）
 
 如果 Q32-Q33 已有回答:
-    写入 PATH_RULES_USER（~/[记忆共享中心]/记忆规则/用户基本规则.md）
-    同步到 PATH_RULES_MDC_BEHAVIOR（~/.workbuddy/rules/behavior-rules.mdc）
+    写入 `$MEMORY_ROOT/记忆规则/用户基本规则.md`
+    同步提炼到 `$MEMORY_ROOT/rules/behavior-rules.md`
 ```
 
 如果 Q27/Q28/Q30 状态类回答:
@@ -1043,14 +1080,14 @@ Step 3: ...
 >
 > | 题号 | 写入文件 | 字段 |
 > |------|---------|------|
-> | Q1-Q7 | PATH_CORE（core-identity.mdc） | L1 核心层章节 |
-> | Q8-Q17 | PATH_CORE（core-identity.mdc） | L2 认知层章节 |
-> | Q18-Q23 | PATH_RULES（behavior-rules.mdc） | L3 行为层章节 |
-> | Q24-Q28 | PATH_SNAPSHOT（MEMORY.md） | L4 情境层章节 |
-> | Q29 | PATH_SHADOW（SHADOW.md） | 知行偏差线索 |
-> | Q30 | PATH_SHADOW（SHADOW.md） | 对质话术偏好 |
-> | Q31 | PATH_CORE（顶部） | 金句铁律 |
-> | Q32-Q33 | PATH_RULES（behavior-rules.mdc） | 协作契约章节 |
+> | Q1-Q7 | $MEMORY_ROOT/核心层/CORE.md | L1 核心层章节 |
+> | Q8-Q17 | $MEMORY_ROOT/核心层/CORE.md | L2 认知层章节 |
+> | Q18-Q23 | $MEMORY_ROOT/记忆规则/用户基本规则.md | L3 行为层章节 |
+> | Q24-Q28 | $MEMORY_ROOT/记忆规则/00_动态状态快照.md | L4 情境层章节 |
+> | Q29 | $MEMORY_ROOT/SHADOW.md | 知行偏差线索 |
+> | Q30 | $MEMORY_ROOT/SHADOW.md | 对质话术偏好 |
+> | Q31 | $MEMORY_ROOT/核心层/CORE.md（顶部） | 金句铁律 |
+> | Q32-Q33 | $MEMORY_ROOT/记忆规则/用户基本规则.md | 协作契约章节 |
 
 ### I2. 修改清单确认制（LRN-20260418-001）
 
