@@ -80,24 +80,24 @@
 
 ### 系统常量（路径定义）
 
-| 常量名 | 路径 | 说明 |
-|--------|------|------|
-| `PATH_CORE` | `[记忆共享中心]/核心层/CORE.md` | L1 核心层（身份+价值观） ★ |
-| `PATH_RULES_USER` | `[记忆共享中心]/记忆规则/用户基本规则.md` | L2/L3 认知层+行为层 ★ |
-| `PATH_SNAPSHOT` | `[记忆共享中心]/记忆规则/00_动态状态快照.md` | L4 情境层当前状态 ★ |
-| `PATH_SHADOW` | `[记忆共享中心]/SHADOW.md` | L5 潜意识层 ★ |
-| `PATH_QUESTIONS` | `[记忆共享中心]/记忆规则/题目库.md` | 33 题问卷题目 ★ |
-| `PATH_ANSWERS` | `[记忆共享中心]/记忆规则/问卷答案汇总.md` | 33 题问卷答案 ★ |
-| `PATH_LEARNINGS` | `[记忆共享中心]/成长箱/.learnings/` | 成长箱，AI 错误记录与进化机制（跨工具共享目录）★ |
-| `PATH_SKILLS_DIR` | `[记忆共享中心]/技能配置/` | Skill 主版本存放地 ★ |
-| `PATH_IDENTITY` | `~/.workbuddy/IDENTITY.md` | AI 身份档案（全局，自动注入） |
-| `PATH_USER` | `~/.workbuddy/USER.md` | 用户画像（全局，自动注入） |
-| `PATH_RULES_MDC_CORE` | `~/.workbuddy/rules/core-identity.mdc` | L1+L2 规则的 .mdc 副本（自动注入 system prompt） |
-| `PATH_RULES_MDC_BEHAVIOR` | `~/.workbuddy/rules/behavior-rules.mdc` | L3 行为规则的 .mdc 副本（自动注入 system prompt） |
-| `PATH_ROUTING_TABLE` | `~/.workbuddy/rules/记忆路由表.mdc` | 信号词路由表（自动注入，按需加载对应记忆层） |
-| `PATH_MEMORY` | `{工作区}/.workbuddy/memory/MEMORY.md` | L4 情境层载体（跨会话持久） |
-| `PATH_DIARY` | `{工作区}/.workbuddy/memory/YYYY-MM-DD.md` | 每日日志（按日期创建） |
-| `PATH_SKILLS_WB` | `~/.workbuddy/skills/{名称}/SKILL.md` | Skill 软链接 → 指向 PATH_SKILLS_DIR |
+| 常量名                       | 路径                                      | 说明                                    |
+| ------------------------- | --------------------------------------- | ------------------------------------- |
+| `PATH_CORE`               | `[记忆共享中心]/核心层/CORE.md`                  | L1 核心层（身份+价值观） ★                      |
+| `PATH_RULES_USER`         | `[记忆共享中心]/记忆规则/用户基本规则.md`               | L2/L3 认知层+行为层 ★                       |
+| `PATH_SNAPSHOT`           | `[记忆共享中心]/记忆规则/00_动态状态快照.md`            | L4 情境层当前状态 ★                          |
+| `PATH_SHADOW`             | `[记忆共享中心]/SHADOW.md`                    | L5 潜意识层 ★                             |
+| `PATH_QUESTIONS`          | `[记忆共享中心]/记忆规则/题目库.md`                  | 33 题问卷题目 ★                            |
+| `PATH_ANSWERS`            | `[记忆共享中心]/记忆规则/问卷答案汇总.md`               | 33 题问卷答案 ★                            |
+| `PATH_LEARNINGS`          | `[记忆共享中心]/成长箱/.learnings/`              | 成长箱，AI 错误记录与进化机制（跨工具共享目录）★            |
+| `PATH_SKILLS_DIR`         | `[记忆共享中心]/技能配置/`                        | Skill 主版本存放地 ★                        |
+| `PATH_IDENTITY`           | `~/.workbuddy/IDENTITY.md`              | AI 身份档案（全局，自动注入）                      |
+| `PATH_USER`               | `~/.workbuddy/USER.md`                  | 用户画像（全局，自动注入）                         |
+| `PATH_RULES_MDC_CORE`     | `~/.workbuddy/rules/core-identity.mdc`  | L1+L2 规则的 .mdc 副本（自动注入 system prompt） |
+| `PATH_RULES_MDC_BEHAVIOR` | `~/.workbuddy/rules/behavior-rules.mdc` | L3 行为规则的 .mdc 副本（自动注入 system prompt）  |
+| `PATH_ROUTING_TABLE`      | `~/.workbuddy/rules/记忆路由表.mdc`          | 信号词路由表（自动注入，按需加载对应记忆层）                |
+| `PATH_MEMORY`             | `{工作区}/.workbuddy/memory/MEMORY.md`     | L4 情境层载体（跨会话持久）                       |
+| `PATH_DIARY`              | `{工作区}/.workbuddy/memory/YYYY-MM-DD.md` | 每日日志（按日期创建）                           |
+| `PATH_SKILLS_WB`          | `~/.workbuddy/skills/{名称}/SKILL.md`     | Skill 软链接 → 指向 PATH_SKILLS_DIR        |
 
 > 💡 **关于 `[记忆共享中心]`**
 >
@@ -143,16 +143,16 @@
 
 ### 与传统 AI 记忆的对比
 
-| 特性 | 五层记忆系统 (WorkBuddy版) | 传统 AI 记忆 |
-|------|--------------------------|-------------|
-| **记忆持久性** | ✅ 永久存储在本地文件 + memory 标签 | ❌ 会话结束后丢失 |
-| **自动注入** | ✅ rules/*.mdc 自动加载 + memory 标签 | ❌ 每次手动启动 |
-| **跨空间同步** | ✅ 全局 rules + 个人档案目录 | ❌ 每个空间独立 |
-| **个性化程度** | ✅ 五层深度定制 | ❌ 浅层次记忆 |
-| **学习进化** | ✅ 错误晋升为规则（成长箱机制） | ❌ 无学习机制 |
-| **隐私安全** | ✅ 本地存储，无上传 | ❌ 可能上传到服务器 |
-| **配置复杂度** | ⚠️ 中等（需完成问卷+创建 Skill） | ✅ 零配置 |
-| **启动速度** | ✅ 自动注入，开箱即用 | ✅ 即时启动 |
+| 特性        | 五层记忆系统 (WorkBuddy版)            | 传统 AI 记忆   |
+| --------- | ------------------------------ | ---------- |
+| **记忆持久性** | ✅ 永久存储在本地文件 + memory 标签        | ❌ 会话结束后丢失  |
+| **自动注入**  | ✅ rules/*.mdc 自动加载 + memory 标签 | ❌ 每次手动启动   |
+| **跨空间同步** | ✅ 全局 rules + 个人档案目录            | ❌ 每个空间独立   |
+| **个性化程度** | ✅ 五层深度定制                       | ❌ 浅层次记忆    |
+| **学习进化**  | ✅ 错误晋升为规则（成长箱机制）               | ❌ 无学习机制    |
+| **隐私安全**  | ✅ 本地存储，无上传                     | ❌ 可能上传到服务器 |
+| **配置复杂度** | ⚠️ 中等（需完成问卷+创建 Skill）          | ✅ 零配置      |
+| **启动速度**  | ✅ 自动注入，开箱即用                    | ✅ 即时启动     |
 
 > 💡 **一句话总结**：rules 自动注入基础认知，memory 标签跨会话保留，"唤醒记忆系统" Skill 是你随时确认状态的遥控器。
 
@@ -531,13 +531,13 @@
 
 WorkBuddy 的记忆更新是**自动的**——不需要你手动触发：
 
-| 触发场景 | 更新内容 | 由谁执行 |
-|---------|---------|---------|
-| 你完成了实质性任务 | 写入今日日志 `.workbuddy/memory/YYYY-MM-DD.md` | AI 自动 |
-| 生成了日报/周报/月报 | 同步到对应记忆层（L2/L4/L5） | 每日伙伴 Skill |
-| 发现了新的言行矛盾 | 写入 SHADOW.md | AI 自动 |
-| 月度校准 | 更新 L2/L4 各层 | 每月一次或你说"月度校准" |
-| 月度蒸馏 | SHADOW 归档（已解决→归档区，复发→移回） | 月度蒸馏时自动 |
+| 触发场景        | 更新内容                                     | 由谁执行          |
+| ----------- | ---------------------------------------- | ------------- |
+| 你完成了实质性任务   | 写入今日日志 `.workbuddy/memory/YYYY-MM-DD.md` | AI 自动         |
+| 生成了日报/周报/月报 | 同步到对应记忆层（L2/L4/L5）                       | 每日伙伴 Skill    |
+| 发现了新的言行矛盾   | 写入 SHADOW.md                             | AI 自动         |
+| 月度校准        | 更新 L2/L4 各层                              | 每月一次或你说"月度校准" |
+| 月度蒸馏        | SHADOW 归档（已解决→归档区，复发→移回）                 | 月度蒸馏时自动       |
 
 ### 4.3 月度校准流程
 
