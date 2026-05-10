@@ -5,9 +5,10 @@
 ## 安装
 
 ```bash
-# 克隆本仓库后：
-npx skills add ./skills/memory-installer
-# 或直接将 skills/memory-installer/ 复制到你的 AI 平台的 skills 目录
+npx skills add easonlao/memory-system/tree/main/skills/memory-installer
+```
+
+或直接将 `skills/memory-installer/` 复制到你的 AI 平台的 skills 目录。
 ```
 
 然后对 AI 说 **"install memory system"**。
@@ -29,8 +30,10 @@ npx skills add ./skills/memory-installer
 ```
 $MEMORY_DATA/
 ├── USER/                     ← 你的画像（L1-L3）
-│   ├── L1-core.md
-│   └── L2-L3-rules.md
+│   ├── core.md
+│   ├── cognitive.md
+│   ├── behavior.md
+│   ├── diary/
 └── AGENTS/                   ← AI 侧数据
     ├── GL1-rules.md
     ├── GL2-patterns.md

@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-10T15:36:12.020Z
-> Files: 45 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-10T16:57:17.332Z
+> Files: 51 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -13,7 +13,7 @@
 - `五层记忆系统-执行文件-WorkBuddy版.md` — 五层记忆初始化系统 v4.1（通用版） (~17822 tok)
 - `五层记忆系统-WorkBuddy安装指南.md` — 五层记忆系统 WorkBuddy 安装指南 (~1516 tok)
 - `CLAUDE.md` — OpenWolf (~507 tok)
-- `README.md` — Project documentation (~188 tok)
+- `README.md` — Project documentation (~203 tok)
 
 ## .claude/
 
@@ -27,16 +27,19 @@
 ## AGENTS/
 
 - `项目总览.md` — 项目总览 (~14 tok)
-- `GL1-铁律.md` — GL1 铁律 — AI 行为底线 (~16 tok)
-- `GL2-模式候选.md` — GL2 模式候选 — 观察中的合作规律 (~13 tok)
+- `GL1-rules.md` — GL1 铁律 — AI 行为底线 (~16 tok)
+- `GL2-patterns.md` — GL2 模式候选 — 观察中的合作规律 (~13 tok)
 
 ## Agent-Memory/
 
-- `04-通用规则.md` — 04 — 通用规则 (~1233 tok)
+- `01-架构定义.md` — 01 — 架构定义 (~795 tok)
+- `04-通用规则.md` — 04 — 通用规则 (~1242 tok)
+- `05-成长箱机制.md` — 05 — 成长箱机制 (~440 tok)
 
 ## C:/Users/eason/.claude/plans/
 
 - `commit-ticklish-sutton.md` — 唤醒记忆系统 Skill 改造 — 自包含安装器 (~670 tok)
+- `e-synologydrive-memory-skills-memory-in-functional-hejlsberg.md` — 记忆助理 SKILL.md 打磨方案 (~1164 tok)
 
 ## C:/Users/eason/.claude/skills/baoyu-diagram/references/
 
@@ -44,8 +47,9 @@
 
 ## USER/
 
-- `L1-核心.md` — L1 — 元信息（价值观·底线·驱动力） (~27 tok)
-- `L2-L3-规则.md` — L2 — 认知模式 / L3 — 行为规律 (~25 tok)
+- `behavior.md` — L3 — 行为规律 (~13 tok)
+- `cognitive.md` — L2 — 认知模式 (~13 tok)
+- `core.md` — L1 — 元信息（价值观·底线·驱动力） (~27 tok)
 
 ## diagram/
 
@@ -54,11 +58,19 @@
 ## skills/memory-installer/
 
 - `metadata.json` (~79 tok)
-- `SKILL.md` — 🧠 Agent-Memory 安装器 (~836 tok)
+- `SKILL.md` — 🧠 Agent-Memory 安装器 (~809 tok)
 
 ## skills/memory-installer/references/
 
 - `AGENTS.md` — Agent-Memory — AI 模板 (~165 tok)
+
+## skills/memory-installer/references/memory-assistant/
+
+- `SKILL.md` — Memory Assistant — 记忆助理 (~1230 tok)
+
+## skills/memory-installer/references/monthly-calibration/
+
+- `SKILL.md` — 月度校准 (~430 tok)
 
 ## 五层记忆系统/
 

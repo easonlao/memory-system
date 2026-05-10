@@ -22,7 +22,7 @@ description: Monthly calibration. Extracts behavior patterns from diaries and pr
 输入：本月所有日记
 处理：扫描出现 3+ 次以上的行为模式
 输出：L3 候选列表（含置信度和证据来源）
-写入：$MEMORY_DATA/USER/L2-L3-rules.md（行为段）
+写入：$MEMORY_DATA/USER/behavior.md（行为段）
 
 例：
 "本月 3 个项目都在截止日前 2 天集中冲刺"
@@ -40,7 +40,7 @@ description: Monthly calibration. Extracts behavior patterns from diaries and pr
   - 存在 → 合并证据，提升置信度
   - 不存在 → 创建 L2 新条目
 输出：更新的 L2 列表
-写入：$MEMORY_DATA/USER/L2-L3-rules.md（认知段）
+写入：$MEMORY_DATA/USER/cognitive.md（认知段）
 ```
 
 ## 步骤 ③：L2 → L1 提案
