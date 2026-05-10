@@ -1,42 +1,40 @@
+# OpenWolf
+
+@.wolf/OPENWOLF.md
+
+This project uses OpenWolf for context management. Read and follow .wolf/OPENWOLF.md every session. Check .wolf/cerebrum.md before generating code. Check .wolf/anatomy.md before reading files.
+
+
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with this repository.
 
 ## 仓库定位
 
-这是五层记忆系统 v4.1 的**公共文件夹**（`$MEMORY_ROOT`），存放所有跨平台共享的记忆数据和文档源文件。文件由 SynologyDrive 在多设备间同步。
+这是五层记忆系统的**公共文件夹**（`$MEMORY_ROOT`），存放所有跨平台共享的记忆数据和文档源文件。文件由 SynologyDrive 在多设备间同步。
 
 ## 核心文档
 
 | 文件 | 用途 |
 |------|------|
-| `五层记忆系统-执行文件-WorkBuddy版.md` | 系统完整定义：33题问卷、路由规则、行为铁律、报告模板、Skill模板（唤醒记忆系统/每日伙伴/读书助手） |
-| `五层记忆系统-新手使用指南-WorkBuddy.md` | WorkBuddy 平台安装和使用指南，含 FAQ、作者实践 |
-| `矛盾与困惑记录.md` | 文档审阅中发现的矛盾、逻辑缺陷与改进建议 |
-| `更新日志.md` | v3.0 → v4.1.2 版本变更历史 |
-
-## 系统架构
-
-五层记忆系统用于让 AI 跨会话/跨平台持久化理解用户：
-
-- **L1 核心层** — 身份、价值观、底线（`核心层/CORE.md`）
-- **L2 认知层** — 思维方式、决策模式（`记忆规则/用户基本规则.md`）
-- **L3 行为层** — 工作节奏、习惯模式（同上）
-- **L4 情境层** — 当前目标、卡点、状态（`记忆规则/00_动态状态快照.md`）
-- **L5 潜意识层** — 言行偏差追踪（`SHADOW.md`）
-
-辅助机制：`rules/` 下的 AI 参考规则（core-identity.md / behavior-rules.md / 记忆路由表.md）、成长箱错误晋升机制、TTL 半衰期管理、月度蒸馏。
+| `五层记忆系统/README.md` | **系统入口** — 路由表、系统概览、文件索引（AI 首读） |
+| `五层记忆系统/01-架构定义.md` | L1-L4 定义、数据流向、目录结构 |
+| `五层记忆系统/02-入口与加载机制.md` | 加载顺序、路由机制 |
+| `五层记忆系统/03-置信度体系.md` | 置信度规则 |
+| `五层记忆系统/04-通用规则.md` | G1-G11 + I1-I7 |
+| `五层记忆系统/05-成长箱机制.md` | GL1/GL2 定义、晋升流程 |
+| `五层记忆系统/06-管理流程.md` | 对话自检→周报→月度蒸馏 |
+| `五层记忆系统/07-问卷.md` | Q1-Q33 |
+| `五层记忆系统/08-技能模板/` | 唤醒/每日伙伴/读书助手 |
+| `五层记忆系统/09-报告模板.md` | 洞察报告模板 |
 
 ## 编辑规范
 
-- **执行文件**是系统唯一的权威定义源，修改规则/问卷/模板时必须同步更新受影响的附录（附录B/C/D Skill模板）
-- **路径变量**：文档中使用 `$MEMORY_ROOT` 占位公共文件夹路径，AI 执行时替换为实际路径（本仓库即 `E:\SynologyDrive\Memory\源文件`）
-- **G1规则**：文档内禁止用题号引用问卷内容（如"Q14-B"），必须用语义描述
-- **修改文件前**遵循 I2 铁律：先输出修改清单，等用户确认后再写入
-- **更新日志**：任何对执行文件的修改都应在 `更新日志.md` 中追加记录
+- **路径变量**：文档中使用 `$MEMORY_ROOT` 占位公共文件夹路径，本仓库即 `E:\SynologyDrive\Memory\源文件`
+- **修改文件前**先输出修改清单，等用户确认后再写入
+- **更新日志**：任何重要修改都应在 `更新日志.md` 中追加记录
 
 ## 关联路径
 
 - 本仓库 = `$MEMORY_ROOT`（公共文件夹根目录）
-- WorkBuddy 平台规则存放于 `~/.workbuddy/rules/*.mdc`（从本仓库 rules/ 同步）
 - 项目级工作记忆存放于 `{工作区}/.workbuddy/memory/`（按项目隔离，不在本仓库）
