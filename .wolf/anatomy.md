@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-10T15:09:33.039Z
-> Files: 40 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-10T15:20:39.924Z
+> Files: 42 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -12,7 +12,8 @@
 - `五层记忆系统-新手使用指南-WorkBuddy.md` — 五层记忆系统 v4.1 WorkBuddy 新手使用指南 (~9335 tok)
 - `五层记忆系统-执行文件-WorkBuddy版.md` — 五层记忆初始化系统 v4.1（通用版） (~17822 tok)
 - `五层记忆系统-WorkBuddy安装指南.md` — 五层记忆系统 WorkBuddy 安装指南 (~1516 tok)
-- `CLAUDE.md` — OpenWolf (~277 tok)
+- `CLAUDE.md` — OpenWolf (~578 tok)
+- `README.md` — Project documentation (~192 tok)
 
 ## .claude/
 
@@ -28,6 +29,10 @@
 - `项目总览.md` — 项目总览 (~14 tok)
 - `GL1-铁律.md` — GL1 铁律 — AI 行为底线 (~16 tok)
 - `GL2-模式候选.md` — GL2 模式候选 — 观察中的合作规律 (~13 tok)
+
+## Agent-Memory/
+
+- `04-通用规则.md` — 04 — 通用规则 (~1233 tok)
 
 ## C:/Users/eason/.claude/plans/
 

@@ -53,8 +53,8 @@
       "first_read": "2026-05-10T09:52:06.981Z"
     },
     "E:/SynologyDrive/Memory/源文件/CLAUDE.md": {
-      "count": 1,
-      "tokens": 278,
+      "count": 2,
+      "tokens": 277,
       "first_read": "2026-05-10T09:53:05.470Z"
     },
     "E:/SynologyDrive/Memory/源文件/技能配置/月度校准.md": {
@@ -151,6 +151,11 @@
       "count": 2,
       "tokens": 0,
       "first_read": "2026-05-10T15:01:55.858Z"
+    },
+    "E:/SynologyDrive/Memory/源文件/Agent-Memory/04-通用规则.md": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-10T15:19:48.639Z"
     }
   },
   "files_written": [
@@ -855,6 +860,24 @@
       "action": "edit",
       "tokens": 174,
       "at": "2026-05-10T15:09:33.049Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/Agent-Memory/04-通用规则.md",
+      "action": "edit",
+      "tokens": 6,
+      "at": "2026-05-10T15:20:03.387Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/README.md",
+      "action": "create",
+      "tokens": 219,
+      "at": "2026-05-10T15:20:13.714Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/CLAUDE.md",
+      "action": "create",
+      "tokens": 661,
+      "at": "2026-05-10T15:20:39.934Z"
     }
   ],
   "edit_counts": {
@@ -867,7 +890,7 @@
     "五层记忆系统/INDEX.md": 6,
     "五层记忆系统/01-架构定义.md": 9,
     "技能配置/月度校准.md": 11,
-    "CLAUDE.md": 2,
+    "CLAUDE.md": 3,
     "技能配置/唤醒记忆系统.md": 10,
     "USER/L1-核心.md": 1,
     "USER/L2-L3-规则.md": 1,
@@ -879,11 +902,13 @@
     "五层记忆系统/五层记忆系统.md": 1,
     "C:/Users/eason/.claude/plans/commit-ticklish-sutton.md": 2,
     "技能配置/唤醒记忆系统/SKILL.md": 4,
-    "技能配置/唤醒记忆系统/references/工作区记忆维护.md": 1
+    "技能配置/唤醒记忆系统/references/工作区记忆维护.md": 1,
+    "Agent-Memory/04-通用规则.md": 1,
+    "README.md": 1
   },
   "anatomy_hits": 25,
-  "anatomy_misses": 4,
-  "repeated_reads_warned": 48,
+  "anatomy_misses": 5,
+  "repeated_reads_warned": 49,
   "cerebrum_warnings": 0,
-  "stop_count": 66
+  "stop_count": 68
 }
