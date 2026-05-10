@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-10T14:36:14.759Z
-> Files: 39 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-10T15:09:33.039Z
+> Files: 40 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -57,7 +57,7 @@
 - `07-问卷.md` — 07 — 用户问卷（Q1-Q33） (~901 tok)
 - `09-报告模板.md` — 09 — 洞察报告模板 (~511 tok)
 - `五层记忆系统.md` — 五层记忆系统 v5.0 — 完整配置 (~818 tok)
-- `AGENTS.md` — 五层记忆系统 — AI 模板 (~146 tok)
+- `AGENTS.md` — 五层记忆系统 — AI 模板 (~157 tok)
 - `INDEX.md` — 五层记忆系统 — 索引 (~267 tok)
 - `README.md` — Project documentation (~85 tok)
 
@@ -76,4 +76,8 @@
 
 ## 技能配置/唤醒记忆系统/
 
-- `SKILL.md` — 🧠 唤醒记忆系统 — 记忆系统安装器 (~606 tok)
+- `SKILL.md` — 🧠 唤醒记忆系统 — 记忆系统安装器 (~779 tok)
+
+## 技能配置/唤醒记忆系统/references/
+
+- `工作区记忆维护.md` — 工作区记忆维护 (~538 tok)
