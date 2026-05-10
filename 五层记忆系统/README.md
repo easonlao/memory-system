@@ -1,12 +1,16 @@
-# 五层记忆系统 v5.0 — 公共记忆库入口
+# 五层记忆系统 v5.0 — AI 执行入口
 
-`$MEMORY_ROOT` = `E:\SynologyDrive\Memory\源文件`
+`$MEMORY_ROOT` = `E:\SynologyDrive\Memory\源文件`（设计目录，含框架 + Skill）
 
 ---
 
 ## 一、启动流程
 
 ```
+0. 检查 $MEMORY_DATA 是否已知
+   ├── 已知 → 跳过
+   └── 未知 → 调用「唤醒记忆系统」Skill 引导设置
+
 1. pwd → $WORKSPACE
 
 2. 检查 $WORKSPACE/.memory/MEMORY.md
@@ -17,8 +21,8 @@
    ├── 有今日/昨日的文件 → 读取（脉络衔接）
    └── 没有 → 跳过
 
-4. 读取 GL1（$MEMORY_ROOT/AGENTS/GL1-铁律.md）
-5. 读取 GL2（$MEMORY_ROOT/AGENTS/GL2-模式候选.md）
+4. 读取 GL1（$MEMORY_DATA/AGENTS/GL1-铁律.md）
+5. 读取 GL2（$MEMORY_DATA/AGENTS/GL2-模式候选.md）
 ```
 
 ---
