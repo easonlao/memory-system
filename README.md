@@ -1,37 +1,37 @@
 # Agent-Memory v5.0
 
-Let AI remember who you are. One install, always available, your data stays with you.
+让 AI 理解你的记忆框架。一次安装，持久可用，数据你掌控。
 
-## Install
+## 安装
 
 ```bash
-# Clone or download this repo, then:
+# 克隆本仓库后：
 npx skills add ./skills/memory-installer
-# Or copy skills/memory-installer/ to your agent's skills directory
+# 或直接将 skills/memory-installer/ 复制到你的 AI 平台的 skills 目录
 ```
 
-Then tell your AI: **"install memory system"**
+然后对 AI 说 **"install memory system"**。
 
-The installer handles everything: platform entry config → sub-skill install → data directory setup → questionnaire.
+安装向导会自动完成：配置入口 → 安装子技能 → 创建数据目录 → 引导问卷填充。
 
-## Features
+## 特点
 
-- **One skill to rule them all** — memory-installer bundles everything
-- **Your data, your control** — `$MEMORY_DATA` is the only backup you need
-- **Cross-platform** — Claude Code, Cursor, Gemini CLI, GitHub Copilot, and more
-- **Auto-maintained** — AI handles workspace logs, behavior extraction, collaboration patterns
-- **Upgrade-safe** — Replace the skill directory, say "upgrade memory system", user data untouched
+- **一个技能搞定全系统** — memory-installer 自带所有依赖
+- **你掌控数据** — `$MEMORY_DATA` 目录是唯一需要备份的，迁移时复制即可
+- **跨平台** — Claude Code、Cursor、Gemini CLI、GitHub Copilot 等
+- **自动维护** — AI 在后台管理工作区日志、行为提炼、合作规律
+- **升级不影响数据** — 替换技能目录后说"upgrade memory system"即可
 
-## Data Layout
+## 数据目录结构
 
-Created during installation, no manual setup needed:
+安装后自动生成，你不需要手动创建：
 
 ```
 $MEMORY_DATA/
-├── USER/                     ← Your profile (L1-L3)
+├── USER/                     ← 你的画像（L1-L3）
 │   ├── L1-core.md
 │   └── L2-L3-rules.md
-└── AGENTS/                   ← AI-side data
+└── AGENTS/                   ← AI 侧数据
     ├── GL1-rules.md
     ├── GL2-patterns.md
     └── project-index.md

@@ -9,8 +9,8 @@
 ```
 0. 检查 $MEMORY_DATA 是否已知
    ├── 已知 → 跳过
-   ├── 已知但找不到入口文件 → 调用「唤醒记忆系统」Skill 作为本次入口
-   └── 未知 → 调用「唤醒记忆系统」Skill 引导安装
+   ├── 已知但找不到入口文件 → 调用memory-installerSkill 作为本次入口
+   └── 未知 → 调用memory-installerSkill 引导安装
 
 1. pwd → $WORKSPACE
 
@@ -22,8 +22,8 @@
    ├── 有今日/昨日的文件 → 读取（脉络衔接）
    └── 没有 → 跳过
 
-4. 读取 GL1（$MEMORY_DATA/AGENTS/GL1-铁律.md）
-5. 读取 GL2（$MEMORY_DATA/AGENTS/GL2-模式候选.md）
+4. 读取 GL1（$MEMORY_DATA/AGENTS/GL1-rules.md）
+5. 读取 GL2（$MEMORY_DATA/AGENTS/GL2-patterns.md）
 ```
 
 ## 系统规则

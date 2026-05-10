@@ -158,14 +158,19 @@
       "first_read": "2026-05-10T15:19:48.639Z"
     },
     "E:/SynologyDrive/Memory/源文件/README.md": {
-      "count": 3,
-      "tokens": 153,
+      "count": 4,
+      "tokens": 296,
       "first_read": "2026-05-10T15:23:32.378Z"
     },
     "E:/SynologyDrive/Memory/源文件/skills/memory-installer/references/AGENTS.md": {
       "count": 1,
       "tokens": 0,
       "first_read": "2026-05-10T15:31:50.515Z"
+    },
+    "E:/SynologyDrive/Memory/源文件/Agent-Memory/AGENTS.md": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-10T15:36:15.668Z"
     }
   },
   "files_written": [
@@ -930,6 +935,24 @@
       "action": "edit",
       "tokens": 99,
       "at": "2026-05-10T15:33:41.141Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/skills/memory-installer/references/AGENTS.md",
+      "action": "create",
+      "tokens": 189,
+      "at": "2026-05-10T15:35:31.347Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/skills/memory-installer/SKILL.md",
+      "action": "create",
+      "tokens": 955,
+      "at": "2026-05-10T15:35:59.202Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/README.md",
+      "action": "create",
+      "tokens": 215,
+      "at": "2026-05-10T15:36:12.030Z"
     }
   ],
   "edit_counts": {
@@ -956,14 +979,14 @@
     "技能配置/唤醒记忆系统/SKILL.md": 4,
     "技能配置/唤醒记忆系统/references/工作区记忆维护.md": 1,
     "Agent-Memory/04-通用规则.md": 1,
-    "README.md": 4,
-    "skills/memory-installer/SKILL.md": 1,
+    "README.md": 5,
+    "skills/memory-installer/SKILL.md": 2,
     "skills/memory-installer/metadata.json": 1,
-    "skills/memory-installer/references/AGENTS.md": 1
+    "skills/memory-installer/references/AGENTS.md": 2
   },
   "anatomy_hits": 26,
-  "anatomy_misses": 6,
-  "repeated_reads_warned": 53,
+  "anatomy_misses": 7,
+  "repeated_reads_warned": 54,
   "cerebrum_warnings": 0,
-  "stop_count": 74
+  "stop_count": 75
 }

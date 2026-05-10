@@ -1,34 +1,34 @@
-# Agent-Memory — AI Template
+# Agent-Memory — AI 模板
 
-Auto-written to platform entry file during installation.
+安装时自动写入平台入口文件，无需手动操作。
 
 ---
 
-## Startup Flow
+## 启动流程
 
 ```
-0. Check $MEMORY_DATA
-   ├── Known → skip
-   ├── Known but no entry file → call memory-installer skill as entry
-   └── Unknown → call memory-installer skill for setup
+0. 检查 $MEMORY_DATA 是否已知
+   ├── 已知 → 跳过
+   ├── 已知但找不到入口文件 → 调用 memory-installer Skill 作为本次入口
+   └── 未知 → 调用 memory-installer Skill 引导安装
 
 1. pwd → $WORKSPACE
 
-2. Check $WORKSPACE/.memory/MEMORY.md
-   ├── Exists → read (current goals/blocks)
-   └── Missing → create directory
+2. 检查 $WORKSPACE/.memory/MEMORY.md
+   ├── 存在 → 读取（当前目标/卡点）
+   └── 不存在 → 创建目录
 
-3. Check $WORKSPACE/.memory/ for recent YYYY-MM-DD.md
-   ├── Found today/yesterday → read (session continuity)
-   └── None → skip
+3. 检查 $WORKSPACE/.memory/ 目录下最近的 YYYY-MM-DD.md
+   ├── 有今日/昨日的文件 → 读取（脉络衔接）
+   └── 没有 → 跳过
 
-4. Read GL1 ($MEMORY_DATA/AGENTS/GL1-rules.md)
-5. Read GL2 ($MEMORY_DATA/AGENTS/GL2-patterns.md)
+4. 读取 GL1（$MEMORY_DATA/AGENTS/GL1-rules.md）
+5. 读取 GL2（$MEMORY_DATA/AGENTS/GL2-patterns.md）
 ```
 
-## System Rules
+## 系统规则
 
-| Condition | Definition | Action |
-|-----------|-----------|--------|
-| Repeated errors | Same issue corrected ≥ 2x / consecutive failures / repeated fix requests | Log to GL2c (error + count) |
-| L4 state change | New project / goal completed / blocker changed / last update long ago | Ask: "Workspace state changed, update workspace memory?" |
+| 条件 | 定义 | 执行 |
+|------|------|------|
+| 同类错误反复 | 同一问题被纠正 ≥ 2 次 / 连续报错 / 重复修改 | 记录到 GL2c（含错误描述 + 次数）|
+| L4 状态明显变化 | 新项目 / 目标完成 / 卡点变化 / 距上次更新已久 | 主动询问是否更新工作区记忆 |

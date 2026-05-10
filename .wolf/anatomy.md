@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-10T15:33:41.129Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-10T15:36:12.020Z
 > Files: 45 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -13,7 +13,7 @@
 - `五层记忆系统-执行文件-WorkBuddy版.md` — 五层记忆初始化系统 v4.1（通用版） (~17822 tok)
 - `五层记忆系统-WorkBuddy安装指南.md` — 五层记忆系统 WorkBuddy 安装指南 (~1516 tok)
 - `CLAUDE.md` — OpenWolf (~507 tok)
-- `README.md` — Project documentation (~296 tok)
+- `README.md` — Project documentation (~188 tok)
 
 ## .claude/
 
@@ -54,11 +54,11 @@
 ## skills/memory-installer/
 
 - `metadata.json` (~79 tok)
-- `SKILL.md` — 🧠 Agent-Memory Installer (~1202 tok)
+- `SKILL.md` — 🧠 Agent-Memory 安装器 (~836 tok)
 
 ## skills/memory-installer/references/
 
-- `AGENTS.md` — Agent-Memory — AI Template (~255 tok)
+- `AGENTS.md` — Agent-Memory — AI 模板 (~165 tok)
 
 ## 五层记忆系统/
 
