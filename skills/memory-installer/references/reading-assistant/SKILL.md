@@ -1,5 +1,5 @@
 ---
-name: 读书助手
+name: reading-assistant
 description: 当用户需要处理书籍文件并生成结构化读书笔记时触发。适用于阅读书籍后提取核心观点、整理全书结构、生成笔记文档。
 version: v2.0
 ---

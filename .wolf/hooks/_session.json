@@ -53,8 +53,8 @@
       "first_read": "2026-05-10T09:52:06.981Z"
     },
     "E:/SynologyDrive/Memory/源文件/CLAUDE.md": {
-      "count": 2,
-      "tokens": 277,
+      "count": 3,
+      "tokens": 578,
       "first_read": "2026-05-10T09:53:05.470Z"
     },
     "E:/SynologyDrive/Memory/源文件/技能配置/月度校准.md": {
@@ -143,8 +143,8 @@
       "first_read": "2026-05-10T14:31:20.852Z"
     },
     "E:/SynologyDrive/Memory/源文件/技能配置/唤醒记忆系统/SKILL.md": {
-      "count": 2,
-      "tokens": 606,
+      "count": 3,
+      "tokens": 779,
       "first_read": "2026-05-10T14:36:07.818Z"
     },
     "E:/SynologyDrive/Memory/源文件/技能配置/唤醒记忆系统/references/工作区记忆维护.md": {
@@ -156,6 +156,16 @@
       "count": 1,
       "tokens": 0,
       "first_read": "2026-05-10T15:19:48.639Z"
+    },
+    "E:/SynologyDrive/Memory/源文件/README.md": {
+      "count": 3,
+      "tokens": 153,
+      "first_read": "2026-05-10T15:23:32.378Z"
+    },
+    "E:/SynologyDrive/Memory/源文件/skills/memory-installer/references/AGENTS.md": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-10T15:31:50.515Z"
     }
   },
   "files_written": [
@@ -878,6 +888,48 @@
       "action": "create",
       "tokens": 661,
       "at": "2026-05-10T15:20:39.934Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/README.md",
+      "action": "edit",
+      "tokens": 3,
+      "at": "2026-05-10T15:23:37.936Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/README.md",
+      "action": "edit",
+      "tokens": 12,
+      "at": "2026-05-10T15:24:17.462Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/skills/memory-installer/SKILL.md",
+      "action": "create",
+      "tokens": 1374,
+      "at": "2026-05-10T15:31:29.046Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/skills/memory-installer/metadata.json",
+      "action": "create",
+      "tokens": 79,
+      "at": "2026-05-10T15:31:33.872Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/skills/memory-installer/references/AGENTS.md",
+      "action": "create",
+      "tokens": 291,
+      "at": "2026-05-10T15:32:02.326Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/README.md",
+      "action": "create",
+      "tokens": 338,
+      "at": "2026-05-10T15:33:27.499Z"
+    },
+    {
+      "file": "E:/SynologyDrive/Memory/源文件/CLAUDE.md",
+      "action": "edit",
+      "tokens": 99,
+      "at": "2026-05-10T15:33:41.141Z"
     }
   ],
   "edit_counts": {
@@ -890,7 +942,7 @@
     "五层记忆系统/INDEX.md": 6,
     "五层记忆系统/01-架构定义.md": 9,
     "技能配置/月度校准.md": 11,
-    "CLAUDE.md": 3,
+    "CLAUDE.md": 4,
     "技能配置/唤醒记忆系统.md": 10,
     "USER/L1-核心.md": 1,
     "USER/L2-L3-规则.md": 1,
@@ -904,11 +956,14 @@
     "技能配置/唤醒记忆系统/SKILL.md": 4,
     "技能配置/唤醒记忆系统/references/工作区记忆维护.md": 1,
     "Agent-Memory/04-通用规则.md": 1,
-    "README.md": 1
+    "README.md": 4,
+    "skills/memory-installer/SKILL.md": 1,
+    "skills/memory-installer/metadata.json": 1,
+    "skills/memory-installer/references/AGENTS.md": 1
   },
-  "anatomy_hits": 25,
-  "anatomy_misses": 5,
-  "repeated_reads_warned": 49,
+  "anatomy_hits": 26,
+  "anatomy_misses": 6,
+  "repeated_reads_warned": 53,
   "cerebrum_warnings": 0,
-  "stop_count": 68
+  "stop_count": 74
 }

@@ -50,32 +50,24 @@ $MEMORY_DATA（运行时，用户安装时创建）
 | `Agent-Memory/04-通用规则.md` | G1-G11 + I1-I7 |
 | `Agent-Memory/05-成长箱机制.md` | GL1/GL2 晋升流程 |
 | `Agent-Memory/06-管理流程.md` | 成长箱自动沉淀流程 |
-| `技能配置/唤醒记忆系统/SKILL.md` | **唯一分发技能** — 安装入口 |
+| `skills/memory-installer/SKILL.md` | **唯一分发技能** — 安装入口 |
 
 ## 分发 vs 开发
 
 ### 分发文件（用户需要的全部）
 
 ```
-技能配置/唤醒记忆系统/  ← 唯一的安装入口
-├── SKILL.md              ← 安装工作流
-└── references/           ← 子技能 + 模板 + 问卷
+skills/memory-installer/      ← 唯一的安装入口
+├── SKILL.md                  ← 安装工作流
+├── metadata.json             ← 版本信息
+└── references/               ← 子技能 + 模板 + 问卷
 ```
 
 ### 开发文件（我们维护的源）
 
 ```
-Agent-Memory/             ← 框架文档源
-├── AGENTS.md             → 同步到 references/AGENTS.md
-├── 07-问卷.md            → 同步到 references/07-问卷.md
-├── 09-报告模板.md        → 同步到 references/09-报告模板.md
-├── 记忆助理.md           → 同步到 references/记忆助理.md
-├── 月度校准.md           → 同步到 references/月度校准.md
-├── 工作区记忆维护.md     → 同步到 references/工作区记忆维护.md
-└── 读书助手.md           → 同步到 references/读书助手.md
+Agent-Memory/                 ← 框架文档源（手动同步到 references/）
 ```
-
-修改源文件后需同步到 `技能配置/唤醒记忆系统/references/`。
 
 ## 维护要点
 

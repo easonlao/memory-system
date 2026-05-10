@@ -1,6 +1,6 @@
 ---
 name: memory-assistant
-description: 记忆助理核心工作流。用于引导用户记录日记、整理周报、提炼记忆。
+description: Daily memory assistant for diary, planning, and weekly reviews. Helps you record daily activities, plan tasks, and organize weekly summaries.用于引导用户记录日记、整理周报、提炼记忆。
 ---
 
 # 🤖 记忆助理

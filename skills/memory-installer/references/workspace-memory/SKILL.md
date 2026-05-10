@@ -1,6 +1,6 @@
 ---
 name: workspace-memory
-description: 工作区记忆维护。写工作区日志、更新 L4 MEMORY.md、同步项目总览。
+description: Workspace memory maintenance. Writes daily workspace logs, updates L4 MEMORY.md, syncs project overview.
 ---
 
 # 工作区记忆维护
@@ -126,7 +126,7 @@ description: 工作区记忆维护。写工作区日志、更新 L4 MEMORY.md、
 
 ### 路径
 
-`$MEMORY_DATA/AGENTS/项目总览.md`
+`$MEMORY_DATA/AGENTS/project-index.md`
 
 ### 格式
 
@@ -142,7 +142,7 @@ description: 工作区记忆维护。写工作区日志、更新 L4 MEMORY.md、
 ### 执行步骤
 
 ```
-1. 项目总览.md 已存在？
+1. project-index.md 已存在？
    ├── 存在 → 读取
    └── 不存在 → 创建，写入表头
 
@@ -150,7 +150,7 @@ description: 工作区记忆维护。写工作区日志、更新 L4 MEMORY.md、
    ├── 有 → 更新描述 + 最后更新
    └── 没有 → 追加新行
 
-3. 写入项目总览.md
+3. 写入project-index.md
 
 4. 末尾追加标记：`[🧠 记忆系统: 工作区记忆维护 - 项目总览同步]`
 ```
