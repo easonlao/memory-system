@@ -17,8 +17,8 @@
    ├── 有今日/昨日的文件 → 读取（脉络衔接）
    └── 没有 → 跳过
 
-4. 读取 GL1（$MEMORY_ROOT/成长箱/01-铁律.md）
-5. 读取 GL2（$MEMORY_ROOT/成长箱/02-模式候选.md）
+4. 读取 GL1（$MEMORY_ROOT/AGENTS/GL1-铁律.md）
+5. 读取 GL2（$MEMORY_ROOT/AGENTS/GL2-模式候选.md）
 ```
 
 ---
