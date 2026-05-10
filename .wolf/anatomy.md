@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-10T13:44:25.493Z
-> Files: 36 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-10T14:36:14.759Z
+> Files: 39 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -29,6 +29,10 @@
 - `GL1-铁律.md` — GL1 铁律 — AI 行为底线 (~16 tok)
 - `GL2-模式候选.md` — GL2 模式候选 — 观察中的合作规律 (~13 tok)
 
+## C:/Users/eason/.claude/plans/
+
+- `commit-ticklish-sutton.md` — 唤醒记忆系统 Skill 改造 — 自包含安装器 (~670 tok)
+
 ## C:/Users/eason/.claude/skills/baoyu-diagram/references/
 
 - `data-flow.md` — Data Flow Diagram Layout (~84 tok)
@@ -52,9 +56,10 @@
 - `06-管理流程.md` — 06 — 成长箱管理流程 (~241 tok)
 - `07-问卷.md` — 07 — 用户问卷（Q1-Q33） (~901 tok)
 - `09-报告模板.md` — 09 — 洞察报告模板 (~511 tok)
-- `AGENTS.md` — 五层记忆系统 — AI 模板 (~159 tok)
+- `五层记忆系统.md` — 五层记忆系统 v5.0 — 完整配置 (~818 tok)
+- `AGENTS.md` — 五层记忆系统 — AI 模板 (~146 tok)
 - `INDEX.md` — 五层记忆系统 — 索引 (~267 tok)
-- `README.md` — Project documentation (~257 tok)
+- `README.md` — Project documentation (~85 tok)
 
 ## 五层记忆系统/08-技能模板/
 
@@ -65,6 +70,10 @@
 ## 技能配置/
 
 - `工作区记忆维护.md` — 工作区记忆维护 (~512 tok)
-- `唤醒记忆系统.md` — 🧠 唤醒记忆系统 — 安装与健康入口 (~1904 tok)
+- `唤醒记忆系统.md` — 🧠 唤醒记忆系统 — 安装与健康入口 (~378 tok)
 - `记忆助理.md` — 🤖 记忆助理 (~611 tok)
 - `月度校准.md` — 月度校准 (~408 tok)
+
+## 技能配置/唤醒记忆系统/
+
+- `SKILL.md` — 🧠 唤醒记忆系统 — 记忆系统安装器 (~606 tok)

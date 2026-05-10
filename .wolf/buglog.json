@@ -384,6 +384,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-10T13:44:25.508Z"
+    },
+    {
+      "id": "bug-025",
+      "timestamp": "2026-05-10T14:01:37.196Z",
+      "error_message": "Significant refactor of ",
+      "file": "技能配置/唤醒记忆系统.md",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 8→17 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T14:01:37.196Z"
     }
   ]
 }
