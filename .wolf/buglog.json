@@ -1,0 +1,389 @@
+{
+  "version": 1,
+  "bugs": [
+    {
+      "id": "bug-001",
+      "timestamp": "2026-05-10T06:35:31.716Z",
+      "error_message": "Significant refactor of ",
+      "file": "CLAUDE.md",
+      "root_cause": "27 lines replaced/restructured",
+      "fix": "Rewrote 49→82 lines (27 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T06:35:31.716Z"
+    },
+    {
+      "id": "bug-002",
+      "timestamp": "2026-05-10T06:42:31.225Z",
+      "error_message": "Significant refactor of ",
+      "file": "五层记忆系统/README.md",
+      "root_cause": "18 lines replaced/restructured",
+      "fix": "Rewrote 28→42 lines (18 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T06:42:31.225Z"
+    },
+    {
+      "id": "bug-003",
+      "timestamp": "2026-05-10T06:56:40.060Z",
+      "error_message": "Significant refactor of ",
+      "file": "五层记忆系统/README.md",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 16→17 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T06:56:40.060Z"
+    },
+    {
+      "id": "bug-004",
+      "timestamp": "2026-05-10T07:01:44.695Z",
+      "error_message": "Incorrect value in code",
+      "file": "五层记忆系统/README.md",
+      "root_cause": "Had `.memory/`",
+      "fix": "Changed to `CLAUDE.md`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T07:01:44.695Z"
+    },
+    {
+      "id": "bug-005",
+      "timestamp": "2026-05-10T07:12:19.818Z",
+      "error_message": "Significant refactor of ",
+      "file": "五层记忆系统/02-入口与加载机制.md",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 6→3 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T07:12:19.818Z"
+    },
+    {
+      "id": "bug-006",
+      "timestamp": "2026-05-10T07:15:19.052Z",
+      "error_message": "Significant refactor of ",
+      "file": "五层记忆系统/README.md",
+      "root_cause": "8 lines replaced/restructured",
+      "fix": "Rewrote 27→15 lines (8 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T07:15:19.052Z"
+    },
+    {
+      "id": "bug-007",
+      "timestamp": "2026-05-10T07:30:30.011Z",
+      "error_message": "Incorrect value in code",
+      "file": "五层记忆系统/README.md",
+      "root_cause": "Had `08-技能模板/读书助手.md`",
+      "fix": "Changed to `07-问卷.md`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-10T07:31:48.662Z"
+    },
+    {
+      "id": "bug-008",
+      "timestamp": "2026-05-10T08:17:57.690Z",
+      "error_message": "Significant refactor of ",
+      "file": "五层记忆系统/README.md",
+      "root_cause": "5 lines replaced/restructured",
+      "fix": "Rewrote 7→9 lines (5 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T08:17:57.690Z"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-05-10T08:36:25.942Z",
+      "error_message": "Significant refactor of ",
+      "file": "五层记忆系统/06-管理流程.md",
+      "root_cause": "13 lines replaced/restructured",
+      "fix": "Rewrote 31→21 lines (13 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T08:36:25.942Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-05-10T09:52:36.482Z",
+      "error_message": "Significant refactor of ",
+      "file": "五层记忆系统/INDEX.md",
+      "root_cause": "14 lines replaced/restructured",
+      "fix": "Rewrote 16→14 lines (14 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T09:52:36.482Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-05-10T09:52:54.084Z",
+      "error_message": "Wrong reference: workbuddy should be memory",
+      "file": "五层记忆系统/01-架构定义.md",
+      "root_cause": "Used \"workbuddy\" instead of \"memory\"",
+      "fix": "Changed workbuddy → memory",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T09:52:54.084Z"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-05-10T09:53:16.711Z",
+      "error_message": "Incorrect value in code",
+      "file": "CLAUDE.md",
+      "root_cause": "Had `{工作区}/.workbuddy/memory/`",
+      "fix": "Changed to `{工作区}/.memory/`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T09:53:16.711Z"
+    },
+    {
+      "id": "bug-013",
+      "timestamp": "2026-05-10T10:22:52.879Z",
+      "error_message": "Significant refactor of ",
+      "file": "技能配置/工作区记忆维护.md",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 4→5 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T10:22:52.879Z"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-05-10T12:28:43.489Z",
+      "error_message": "Significant refactor of ",
+      "file": "五层记忆系统/README.md",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 8→10 lines (3 removed) | Also: Skill 内容按需读取，触发条件与执行步骤在每个 Skill 文件内自行定义。; ### 加载分类 | Also: ---; ## 四、技能索引（按需加载）",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-05-10T12:37:42.417Z"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-05-10T13:05:51.801Z",
+      "error_message": "Incorrect value in code",
+      "file": "技能配置/工作区记忆维护.md",
+      "root_cause": "Had `$MEMORY_ROOT/项目总览.md`",
+      "fix": "Changed to `$MEMORY_ROOT/AGENTS/项目总览.md`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T13:05:51.801Z"
+    },
+    {
+      "id": "bug-016",
+      "timestamp": "2026-05-10T13:06:31.729Z",
+      "error_message": "Incorrect value in code",
+      "file": "五层记忆系统/05-成长箱机制.md",
+      "root_cause": "Had `$MEMORY_ROOT/成长箱/02-模式候选.md`",
+      "fix": "Changed to `$MEMORY_ROOT/AGENTS/GL2-模式候选.md`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T13:06:31.729Z"
+    },
+    {
+      "id": "bug-017",
+      "timestamp": "2026-05-10T13:24:25.648Z",
+      "error_message": "Wrong reference: $MEMORY_ROOT should be $MEMORY_DATA",
+      "file": "技能配置/月度校准.md",
+      "root_cause": "Used \"$MEMORY_ROOT\" instead of \"$MEMORY_DATA\"",
+      "fix": "Changed $MEMORY_ROOT → $MEMORY_DATA",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 4,
+      "last_seen": "2026-05-10T13:24:28.054Z"
+    },
+    {
+      "id": "bug-018",
+      "timestamp": "2026-05-10T13:24:28.815Z",
+      "error_message": "Incorrect value in code",
+      "file": "技能配置/工作区记忆维护.md",
+      "root_cause": "Had `$MEMORY_ROOT/AGENTS/项目总览.md`",
+      "fix": "Changed to `$MEMORY_DATA/AGENTS/项目总览.md`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T13:24:28.815Z"
+    },
+    {
+      "id": "bug-019",
+      "timestamp": "2026-05-10T13:24:29.292Z",
+      "error_message": "Incorrect value in code",
+      "file": "五层记忆系统/05-成长箱机制.md",
+      "root_cause": "Had `$MEMORY_ROOT/AGENTS/GL2-模式候选.md`",
+      "fix": "Changed to `$MEMORY_DATA/AGENTS/GL2-模式候选.md`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T13:24:29.292Z"
+    },
+    {
+      "id": "bug-020",
+      "timestamp": "2026-05-10T13:24:37.878Z",
+      "error_message": "Wrong reference: $MEMORY_ROOT should be $MEMORY_DATA",
+      "file": "五层记忆系统/05-成长箱机制.md",
+      "root_cause": "Used \"$MEMORY_ROOT\" instead of \"$MEMORY_DATA\"",
+      "fix": "Changed $MEMORY_ROOT → $MEMORY_DATA",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T13:24:37.878Z"
+    },
+    {
+      "id": "bug-021",
+      "timestamp": "2026-05-10T13:25:03.932Z",
+      "error_message": "Significant refactor of ",
+      "file": "五层记忆系统/01-架构定义.md",
+      "root_cause": "20 lines replaced/restructured",
+      "fix": "Rewrote 30→68 lines (20 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T13:25:03.932Z"
+    },
+    {
+      "id": "bug-022",
+      "timestamp": "2026-05-10T13:25:08.368Z",
+      "error_message": "Wrong reference: $MEMORY_ROOT should be $MEMORY_DATA",
+      "file": "五层记忆系统/04-通用规则.md",
+      "root_cause": "Used \"$MEMORY_ROOT\" instead of \"$MEMORY_DATA\"",
+      "fix": "Changed $MEMORY_ROOT → $MEMORY_DATA",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T13:25:08.368Z"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-05-10T13:26:08.470Z",
+      "error_message": "Wrong reference: $MEMORY_ROOT should be $MEMORY_DATA",
+      "file": "五层记忆系统/01-架构定义.md",
+      "root_cause": "Used \"$MEMORY_ROOT\" instead of \"$MEMORY_DATA\"",
+      "fix": "Changed $MEMORY_ROOT → $MEMORY_DATA",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 4,
+      "last_seen": "2026-05-10T13:26:10.027Z"
+    },
+    {
+      "id": "bug-024",
+      "timestamp": "2026-05-10T13:44:25.508Z",
+      "error_message": "Significant refactor of ",
+      "file": "技能配置/唤醒记忆系统.md",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 4→8 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-10T13:44:25.508Z"
+    }
+  ]
+}
