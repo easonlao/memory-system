@@ -23,10 +23,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 | `五层记忆系统/03-置信度体系.md` | 置信度规则 |
 | `五层记忆系统/04-通用规则.md` | G1-G11 + I1-I7 |
 | `五层记忆系统/05-成长箱机制.md` | GL1/GL2 定义、晋升流程 |
-| `五层记忆系统/06-管理流程.md` | 对话自检→周报→月度蒸馏 |
+| `五层记忆系统/06-管理流程.md` | 成长箱自动沉淀流程 |
 | `五层记忆系统/07-问卷.md` | Q1-Q33 |
-| `五层记忆系统/08-技能模板/` | 唤醒/每日伙伴/读书助手 |
 | `五层记忆系统/09-报告模板.md` | 洞察报告模板 |
+| `技能配置/` | 记忆助理/月度校准/工作区记忆维护/唤醒/读书助手 Skill |
 
 ## 编辑规范
 
@@ -37,4 +37,4 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 ## 关联路径
 
 - 本仓库 = `$MEMORY_ROOT`（公共文件夹根目录）
-- 项目级工作记忆存放于 `{工作区}/.workbuddy/memory/`（按项目隔离，不在本仓库）
+- 项目级工作记忆存放于 `{工作区}/.memory/`（按项目隔离，不在本仓库）
