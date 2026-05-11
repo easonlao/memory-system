@@ -1,10 +1,10 @@
 {
-  "name": "memory-installer",
+  "name": "memory-system",
   "version": "5.0.0",
   "description": "Agent-Memory installer. One skill to deploy the full memory system.",
   "author": "easonlao",
   "license": "MIT",
-  "repository": "easonlao/agent-memory",
+  "repository": "easonlao/memory-system",
   "references": [
     "https://skills.sh"
   ]

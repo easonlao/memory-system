@@ -9,8 +9,8 @@
 ```
 0. 检查 $MEMORY_DATA 是否已知
    ├── 已知 → 跳过
-   ├── 已知但找不到入口文件 → 调用 memory-installer Skill 作为本次入口
-   └── 未知 → 调用 memory-installer Skill 引导安装
+   ├── 已知但找不到入口文件 → 调用 memory-system Skill 作为本次入口
+   └── 未知 → 调用 memory-system Skill 引导安装
 
 1. pwd → $WORKSPACE
 
