@@ -12,14 +12,15 @@ description: Monthly calibration. Extracts behavior patterns from diaries and pr
 
 ## 输入
 
-本月所有日记
+本月所有日记（`$MEMORY_DATA/USER/diary/YYYY/MM/`）、本月周记（同目录 `YYYY-Www.md`）、本月工作区日志
 
 ## 步骤 ①：日记 → L3 提炼
 
-> 从本月日记中提取行为规律
+> 从本月日记、周记中提取行为规律
 
 ```
-输入：本月所有日记
+输入：本月所有日记 + 周记（$MEMORY_DATA/USER/diary/YYYY/MM/）
+      本月工作区日志（各 workspace/.memory/YYYY-MM-DD.md）
 处理：扫描出现 3+ 次以上的行为模式
 输出：L3 候选列表（含置信度和证据来源）
 写入：$MEMORY_DATA/USER/behavior.md（行为段）
@@ -73,7 +74,13 @@ description: Monthly calibration. Extracts behavior patterns from diaries and pr
  ✅ L1「结果重于过程」↔ 本月完成率 85% → 一致
  ⚠️ L1「健康优先」↔ 本月平均睡眠 5.2h → 差异显著
  ❌ L1「不将就」↔ 本月勉强接受了 2 次合作 → 建议讨论
+
+写入：本月校准结果（汇入末尾月度日志）
 ```
+
+### 追问生成
+
+审计发现差异时，针对矛盾点生成 1-2 道追问，加入出题队列（AGENTS.md 出题自检 P0），下次对话中由 AI 自然提出。
 
 ## 步骤 ⑤：更新 GL1 编译
 
@@ -92,7 +99,7 @@ description: Monthly calibration. Extracts behavior patterns from diaries and pr
 ## 步骤 ⑥：成长箱晋升检查
 
 > 月度校准后执行成长箱晋升评估。
-> 参考 `06-管理流程.md` 的晋升流程。
+> 参考 `01-架构定义.md` 的 GL2 晋升路径。
 
 ```
 输入：GL2 当前列表（$MEMORY_DATA/AGENTS/GL2-patterns.md）
@@ -115,5 +122,9 @@ L1↔L3 审计：1 处差异建议关注
 → 步骤⑤ GL1 编译：{已更新/无需变更}
 → 步骤⑥ 成长箱：{X 条晋升提案 / X 条归档}
 ```
+
+## 写入月度日志
+
+将本次校准结果追加到 `$MEMORY_DATA/USER/diary/YYYY/MM/monthly-log.md`，作为月度记忆系统日志存档。
 
 末尾追加标记：`[🧠 记忆系统: 月度校准 - L3→L2→L1 + GL1 编译 + 成长箱晋升]`

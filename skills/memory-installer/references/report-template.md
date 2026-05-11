@@ -40,9 +40,8 @@
 
 ## 报告模板
 
-```html
-<h1 style="text-align:center; font-size:3em; color:#ff69b4; text-shadow:0 0 8px #ff69b4;">
-《底层洞察与协作契约报告》</h1>
+```markdown
+# 《底层洞察与协作契约报告》
 
 ---
 

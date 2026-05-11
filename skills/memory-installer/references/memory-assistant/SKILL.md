@@ -39,7 +39,8 @@ description: Daily memory assistant for diary, planning, session logging, and we
 | L2 | `$MEMORY_DATA/USER/cognitive.md` | 认知模式 |
 | L3 | `$MEMORY_DATA/USER/behavior.md` | 行为规律（含石头追踪） |
 | 日记 | `$MEMORY_DATA/USER/diary/YYYY/MM/YYYY-MM-DD.md` | 个人日记 |
-| 周记 | `$MEMORY_DATA/USER/weekly/YYYY-Www.md` | 周汇总 |
+| 周记 | `$MEMORY_DATA/USER/diary/YYYY/MM/YYYY-Www.md` | 周汇总（与日记同目录） |
+| 月度日志 | `$MEMORY_DATA/USER/diary/YYYY/MM/monthly-log.md` | 月度校准总结 |
 | L4 | `{workspace}/.memory/MEMORY.md` | 当前状态快照 |
 | 工作区日志 | `{workspace}/.memory/YYYY-MM-DD.md` | session 记录 |
 | 项目总览 | `$MEMORY_DATA/AGENTS/project-index.md` | 跨项目索引 |
@@ -154,14 +155,17 @@ description: Daily memory assistant for diary, planning, session logging, and we
 
 触发："写周报" / "周复盘" / "本周总结"
 
-1. 读取本周所有日记（`$MEMORY_DATA/USER/diary/YYYY/MM/` 本周日期段）
-2. 提取 SSOT 汇总：完成事项、时间分配、能量状态
-3. 提取**重复石头列表**（跨天出现的同一本质主石头）
-4. 对比上周计划与实际完成
-5. 输出周报摘要给用户确认
-6. 用户确认后写入周记（`$MEMORY_DATA/USER/weekly/YYYY-Www.md`）
-7. 提示：*"这周'[石头名]'出现了 N 次，是否确认写入 L3 behavior.md？"*
-8. 末尾追加标记：`[🧠 记忆系统: 记忆助理 - 周报整理]`
+1. 确定本周覆盖的日期范围
+2. 如果跨月，读取两个月份目录的日记：
+   - `$MEMORY_DATA/USER/diary/YYYY/MM/` 本周日期段
+   - 跨月时额外读取相邻月份目录
+3. 提取 SSOT 汇总：完成事项、时间分配、能量状态
+4. 提取**重复石头列表**（跨天出现的同一本质主石头）
+5. 对比上周计划与实际完成
+6. 输出周报摘要给用户确认
+7. 用户确认后写入周记（`$MEMORY_DATA/USER/diary/YYYY/MM/YYYY-Www.md`，放在天数较多的月份目录）
+8. 提示：*"这周'[石头名]'出现了 N 次，是否确认写入 L3 behavior.md？"*
+9. 末尾追加标记：`[🧠 记忆系统: 记忆助理 - 周报整理]`
 
 ---
 
