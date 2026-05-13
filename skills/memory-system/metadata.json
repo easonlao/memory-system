@@ -1,7 +1,6 @@
-
 {
   "name": "memory-system",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "Agent-Memory 一体化记忆系统。单文件夹复制即用。",
   "author": "easonlao",
   "license": "MIT",

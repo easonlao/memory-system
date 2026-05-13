@@ -10,14 +10,17 @@
 2. 找到已有数据目录 → 询问用户确认路径 → 重建 config.json
 3. 未找到 → 告知用户需要重新配置（说"使用记忆系统"）
 
-## C1：版本检测 + 自动更新
-（保留原 skills CLI 更新逻辑，如果可用则使用；否则提示手动更新）
+## C1：下载新版
+告知用户运行以下命令下载最新版：
+```
+npx skills easonlao/memory-system
+```
+替换完成后回到本对话继续后续步骤。
 
 ## C2：更新 assets 资源文件
 1. 更新 `{skill_dir}/assets/AGENTS.md`
 2. 更新 `{skill_dir}/assets/questionnaire.md`
 3. 更新 `{skill_dir}/assets/report-template.md`
-（注：实际通过技能更新机制完成）
 
 ## C3：更新题库（可选）
 1. 比较 `$MEMORY_DATA/questionnaire.md` 与新版 `{skill_dir}/assets/questionnaire.md`
@@ -25,7 +28,7 @@
 3. 无变化 → 跳过
 
 ## C4：更新 config.json
-更新版本号为 6.0.0，更新 last_used
+更新版本号为 {新版本号}，更新 last_used
 
 ## C5：健康检查 + 输出摘要
 运行工作流 B（读取 references/workflow-b.md），输出升级摘要
