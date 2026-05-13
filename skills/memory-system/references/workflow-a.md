@@ -46,7 +46,7 @@
 创建/更新 `{skill_dir}/config.json`：
 ```json
 {
-  "version": "6.0.0",
+  "version": "6.1.0",
   "memory_data_path": "$MEMORY_DATA",
   "activated": true,
   "last_used": "当前 ISO 时间"
