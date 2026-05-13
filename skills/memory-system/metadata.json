@@ -1,7 +1,8 @@
+
 {
   "name": "memory-system",
-  "version": "5.0.0",
-  "description": "Agent-Memory installer. One skill to deploy the full memory system.",
+  "version": "6.0.0",
+  "description": "Agent-Memory 一体化记忆系统。单文件夹复制即用。",
   "author": "easonlao",
   "license": "MIT",
   "repository": "easonlao/memory-system",
@@ -9,3 +10,4 @@
     "https://skills.sh"
   ]
 }
+

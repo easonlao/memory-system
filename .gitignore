@@ -1,3 +1,13 @@
-﻿.claude/
-.wolf/
-archived/
+# 只保留 skills/memory-system 和基本文件
+*
+
+# 保留 skills/memory-system 及其内容
+!skills/
+!skills/memory-system/
+!skills/memory-system/**
+
+# 保留根目录基本文件
+!.gitignore
+!LICENSE
+!README.md
+!AGENTS.md
