@@ -19,7 +19,8 @@
      - 有 → 跳过衰减（已强化）
      - 无 → 读取 `$MEMORY_DATA/.last_decay_check`
        - 同一天 → 跳过
-       - 不同日期 → 读取 behavior.md 和 cognitive.md 中置信度 < 0.7 且非问卷来源的 AI 观察模式，每项 -0.1，< 0.3 移入历史区
+       - 不同日期 → 读取 behavior.md 和 cognitive.md 中 `[来源: AI月度提炼]` 标记的条目，且置信度 < 0.7 的，每项 -0.1，< 0.3 移入历史区
+       - `## 问卷` 段（无来源标记）的条目不衰减
        - 写入 `$MEMORY_DATA/.last_decay_check` = 今天日期
 7. 简短确认（一句话），不打断心流
 

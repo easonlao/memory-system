@@ -25,8 +25,8 @@
 ## A4：问卷填充
 引导用户逐部分回答 `$MEMORY_DATA/questionnaire.md`：
 - 第一部分 核心层（Q1-Q7）→ 写入 USER/core.md
-- 第二部分 认知层（Q8-Q17）→ 写入 USER/cognitive.md
-- 第三部分 行为层（Q18-Q23）→ 写入 USER/behavior.md
+- 第二部分 认知层（Q8-Q17）→ 写入 USER/cognitive.md（放入 `## 问卷` 段，不标记来源，永不衰减）
+- 第三部分 行为层（Q18-Q23）→ 写入 USER/behavior.md（放入 `## 问卷` 段，不标记来源，永不衰减）
 - 第四部分 情境层（Q24-Q28）→ USER/behavior.md 附注
 - 协作契约（Q31-Q33）→ USER/core.md 顶部
 

@@ -47,7 +47,10 @@
 ## E4：GL2b → GL2a 晋升检查
 读取各项目的 `.rules/` 文件，检查是否有置信度 ≥ 0.7 **且**跨项目出现的规则：
 - 满足条件 → 输出提案并询问用户："规则'{描述}'在 2+ 项目中出现（置信度 {N}），是否晋升到全局规则？"
-  - 用户确认 → 写入 `$MEMORY_DATA/AGENTS/GL2-patterns.md`
+  - 用户确认 → 写入 `$MEMORY_DATA/AGENTS/GL2-patterns.md`，格式：
+    ```
+    - {描述} | 置信度: {N} | 来源: {项目A}, {项目B} | 确认于: {YYYY-MM-DD}
+    ```
   - 用户拒绝 → 跳过
 - 不满足条件 → 跳过
 
@@ -57,6 +60,7 @@
 ## E6：L4 & 项目总览同步
 - 如果今天有工作产出变化 → 更新 `$WORKSPACE/memory/MEMORY.md`
 - 如果项目状态变化 → 更新 `$MEMORY_DATA/AGENTS/project-index.md`
+- **清理**：检查 project-index.md 中的条目对应的 `$WORKSPACE` 目录是否仍然存在，不存在的条目询问用户是否删除
 
 ## E7：明日预告
 - 如果今天是周日 → "今天是周日，要不要顺便写周报？"
