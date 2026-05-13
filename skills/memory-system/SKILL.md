@@ -54,6 +54,7 @@ description: Agent-Memory 一体化个人记忆系统。单文件夹复制即用
 | "写周报" / "周复盘" | 工作流 F | `references/workflow-f.md` |
 | "月度校准" / "月总结" / "本月回顾" | 工作流 G | `references/workflow-g.md` |
 | "开始专注" / "完成" / "记账" | 工作流 H | `references/workflow-h.md` |
+| "完成任务" / "收工" / 工作结束 | 工作流 H（含 project-index 同步） | `references/workflow-h.md` |
 | 其他 | 日常对话（保持激活） | — |
 
 ---
